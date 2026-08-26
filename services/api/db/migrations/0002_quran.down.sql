@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS ayah_audio;
+DROP TABLE IF EXISTS reciters;
+DROP TABLE IF EXISTS ayah_translations;
+DROP TABLE IF EXISTS translations;
+DROP TABLE IF EXISTS ayahs;
+DROP TABLE IF EXISTS surahs;

@@ -41,9 +41,8 @@ AI must never be treated as an authoritative religious source.
 
 ## Mobile
 
-* React Native
-* Expo
-* TypeScript
+* Flutter
+* Dart
 
 Targets:
 
@@ -54,37 +53,33 @@ Targets:
 
 Primary:
 
-* Cloudflare Workers
-* TypeScript
+* Go
+* AWS Lambda
 
-AWS alternative for workloads that exceed Cloudflare's strengths.
+Cloudflare Workers may still host lightweight edge logic (redirects, request shaping, caching) in front of the API, but core business logic lives in Go on Lambda.
 
 ## Infrastructure
 
-Cloudflare:
+Cloudflare (edge only):
 
-* Workers
-* D1
-* R2
-* KV
-* Queues
-* Durable Objects
-* Pages
 * CDN
 * WAF
 * Turnstile
+* DNS
+* Pages (static web hosting)
 
-AWS where useful:
+AWS (primary compute/data):
 
+* Lambda
+* API Gateway
+* RDS PostgreSQL
 * S3
 * CloudFront
-* Lambda
-* ECS/Fargate
-* RDS PostgreSQL
 * SQS
 * SNS
 * Bedrock
-* EC2
+* ECS/Fargate (for workloads Lambda doesn't fit)
+* EC2 (avoid unless unavoidable)
 
 The application must not become tightly coupled to either provider.
 
@@ -102,7 +97,7 @@ The application must not become tightly coupled to either provider.
                                    ▼
                          ┌───────────────────┐
                          │   API Gateway     │
-                         │ Cloudflare Worker │
+                         │  AWS Lambda (Go)  │
                          └─────────┬─────────┘
                                    │
         ┌──────────────┬───────────┼───────────┬──────────────┐
@@ -116,20 +111,20 @@ The application must not become tightly coupled to either provider.
                                    ▼
                          ┌───────────────────┐
                          │ Data Layer        │
-                         │ D1 / PostgreSQL   │
+                         │ PostgreSQL (RDS)  │
                          └─────────┬─────────┘
                                    │
                      ┌─────────────┴─────────────┐
                      │                           │
                      ▼                           ▼
               Object Storage                Cache
-                  R2/S3                     KV/Redis
+                     S3                  DynamoDB/Redis
 
                                    │
                                    ▼
                          ┌───────────────────┐
                          │ Async Processing  │
-                         │ Queues / Workers  │
+                         │  SQS / Lambda     │
                          └─────────┬─────────┘
                                    │
               ┌────────────────────┼───────────────────┐
@@ -172,7 +167,6 @@ huda/
 │   ├── ui/
 │   ├── types/
 │   ├── config/
-│   ├── database/
 │   ├── quran/
 │   ├── prayer/
 │   ├── islamic-calendar/
@@ -193,6 +187,14 @@ huda/
 │
 └── docs/
 ```
+
+Tech per folder:
+
+* `apps/web`, `apps/admin` — Next.js / TypeScript
+* `apps/mobile` — Flutter / Dart
+* `services/api` — Go module (modular monolith, see #47); the other `services/*` folders stay empty placeholders until a domain is actually extracted
+* `packages/*` — shared TypeScript libraries for the web frontends
+* `services/api/db` — SQL schema/migrations + sqlc-generated Go data-access code (see #28)
 
 ---
 
@@ -953,7 +955,7 @@ AI should be isolated from the core API.
 
 ## Initial
 
-Cloudflare D1 for:
+PostgreSQL (AWS RDS) for:
 
 * users
 * preferences
@@ -963,12 +965,13 @@ Cloudflare D1 for:
 * history
 * settings
 
+Accessed from Go services via pgx, with sqlc-generated typed queries.
+
 ## Scaled
 
 PostgreSQL:
 
-* AWS RDS
-* or another managed PostgreSQL provider
+* AWS RDS, moving to Aurora Serverless v2 if traffic becomes spiky/unpredictable
 
 Potential extensions:
 
@@ -985,7 +988,7 @@ Database access must occur through a repository/data-access layer so migration d
 Primary:
 
 ```text
-Cloudflare R2
+AWS S3
 ```
 
 Store:
@@ -1000,18 +1003,18 @@ Store:
 Alternative:
 
 ```text
-AWS S3
+Cloudflare R2
 ```
 
-Use CDN delivery.
+Use CDN delivery (CloudFront, with Cloudflare CDN in front at the edge).
 
-Never serve large audio files directly through application workers.
+Never serve large audio files directly through application compute (Lambda).
 
 ---
 
 # 30. Caching
 
-Cloudflare KV:
+DynamoDB:
 
 * configuration
 * popular Quran data
@@ -1019,19 +1022,18 @@ Cloudflare KV:
 * feature flags
 * temporary cached responses
 
-Durable Objects:
+CloudFront / Cloudflare edge cache:
 
-* real-time synchronization
-* rate limiting where appropriate
-* stateful coordination
+* static assets
+* public API responses
 
-Redis can be introduced later if PostgreSQL/AWS infrastructure requires it.
+Redis (ElastiCache) can be introduced later for real-time synchronization, rate limiting, and stateful coordination if DynamoDB conditional writes aren't sufficient.
 
 ---
 
 # 31. Async Processing
 
-Cloudflare Queues:
+AWS SQS:
 
 ```text
 notification_jobs
@@ -1042,9 +1044,9 @@ analytics_jobs
 sync_jobs
 ```
 
-Workers consume queues.
+Lambda (Go) consumers process queues.
 
-Heavy workloads move to AWS workers when necessary.
+Heavy/long-running workloads move to ECS/Fargate when necessary.
 
 ---
 
@@ -1052,9 +1054,9 @@ Heavy workloads move to AWS workers when necessary.
 
 Mobile:
 
-* Expo Notifications
 * Firebase Cloud Messaging
 * Apple Push Notification Service
+* Flutter: `firebase_messaging` + `flutter_local_notifications`
 
 Notification categories:
 
@@ -1089,7 +1091,7 @@ Offline:
 Mobile storage:
 
 ```text
-SQLite
+SQLite (via Drift/sqflite in Flutter)
 ```
 
 Synchronization:
@@ -1165,7 +1167,7 @@ Structure:
 
 Use OpenAPI for documentation.
 
-Generate shared TypeScript API types.
+Generate typed clients from the OpenAPI spec: TypeScript for web/admin, Dart for the Flutter app.
 
 ---
 
@@ -1408,35 +1410,36 @@ production
 
 # 44. Deployment Strategy
 
-## Phase 1 — Cloudflare
+## Phase 1 — Cloudflare edge + AWS backend
 
 Deploy:
 
 ```text
-Next.js
-      ↓
-Cloudflare
-      ↓
-Workers
-      ↓
-D1
-      ↓
-R2
-      ↓
-Queues
-      ↓
-KV
+Next.js (web)          Flutter (mobile)
+      │                      │
+      ▼                      ▼
+Cloudflare (CDN/WAF/DNS)      │
+      │                      │
+      └──────────┬───────────┘
+                  ▼
+            API Gateway
+                  ↓
+            Lambda (Go)
+                  ↓
+     ┌────────────┼────────────┐
+     ▼             ▼            ▼
+    RDS            S3          SQS
 ```
 
-This keeps initial infrastructure extremely cheap.
+Lambda + RDS (or Aurora Serverless v2) + S3 + SQS keeps backend infrastructure pay-per-use. Cloudflare stays the edge/CDN/WAF layer and hosts the static Next.js build.
 
 ---
 
-# 45. AWS Escape Hatch
+# 45. Cloudflare's Role
 
-Move workloads to AWS when Cloudflare limits become relevant.
+AWS (Lambda/Go) is the backend compute/data layer from day one — this is not a later migration.
 
-Potential architecture:
+Cloudflare stays permanently as the edge layer:
 
 ```text
 Cloudflare
@@ -1444,22 +1447,20 @@ Cloudflare
    ├── CDN
    ├── DNS
    ├── WAF
-   └── Edge
+   └── Turnstile
         │
         ▼
       AWS
         │
-        ├── ECS
-        ├── Lambda
+        ├── API Gateway
+        ├── Lambda (Go)
         ├── RDS
         ├── S3
         ├── SQS
         └── Bedrock
 ```
 
-Cloudflare remains the edge layer.
-
-AWS becomes the compute/data layer.
+If a workload later needs long-running processes Lambda doesn't fit well (heavy AI inference, GPU workloads), move it to ECS/Fargate behind the same API Gateway. The escape hatch, if one is needed, is Lambda → containers — not Cloudflare → AWS.
 
 ---
 
@@ -1471,12 +1472,12 @@ Initial objective:
 
 Prioritize:
 
-1. Cloudflare free/low-cost infrastructure
-2. Existing AWS free credits
+1. AWS free tier / existing AWS credits (Lambda, RDS, S3, SQS free tiers)
+2. Cloudflare free-tier edge (CDN, WAF, DNS, Pages)
 3. CDN caching
 4. Offline clients
 5. Static data
-6. Serverless workloads
+6. Serverless workloads (Lambda over containers)
 7. Queue-based processing
 
 Avoid unnecessarily deploying:
@@ -1484,7 +1485,7 @@ Avoid unnecessarily deploying:
 * Kubernetes
 * permanent EC2 servers
 * GPU machines
-* Redis clusters
+* Redis/ElastiCache clusters
 * multiple databases
 * microservices that don't need to exist yet
 
@@ -1827,24 +1828,27 @@ TypeScript
 Tailwind
 shadcn/ui
 
-React Native
-Expo
+Flutter
+Dart
 
-Cloudflare Workers
-Cloudflare D1
-Cloudflare R2
-Cloudflare KV
-Cloudflare Queues
+Go
+AWS Lambda
+API Gateway
+RDS PostgreSQL
+S3
+SQS
 
-SQLite
-Drizzle ORM
+Cloudflare (CDN / WAF / DNS / Pages)
+
+SQLite (mobile offline, via Drift)
+pgx + sqlc (Go/Postgres access)
 
 GitHub Actions
 ```
 
-Keep the architecture provider-agnostic.
+Keep the architecture provider-agnostic where practical.
 
-Use AWS credits selectively for workloads that genuinely benefit from AWS infrastructure.
+Cloudflare is the permanent edge layer; AWS is the backend compute/data layer from the first deploy.
 
 The first milestone is not "build every feature."
 

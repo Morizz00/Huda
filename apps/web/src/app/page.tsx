@@ -8,12 +8,20 @@ export default function Home() {
       </p>
       <h1 className="text-2xl font-semibold">HUDA</h1>
       <p className="text-sm text-neutral-500">Guidance, wherever you are.</p>
-      <Link
-        href="/prayer"
-        className="mt-4 rounded-lg bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white dark:bg-white dark:text-neutral-900"
-      >
-        View Prayer Times
-      </Link>
+      <div className="mt-4 flex gap-3">
+        <Link
+          href="/quran"
+          className="rounded-lg bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white dark:bg-white dark:text-neutral-900"
+        >
+          Read Quran
+        </Link>
+        <Link
+          href="/prayer"
+          className="rounded-lg border border-neutral-300 px-5 py-2.5 text-sm font-medium dark:border-neutral-700"
+        >
+          Prayer Times
+        </Link>
+      </div>
     </main>
   );
 }

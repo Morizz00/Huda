@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS dua_audio;
+DROP TABLE IF EXISTS dua_translations;
+DROP TABLE IF EXISTS duas;
+DROP TABLE IF EXISTS dua_sources;
+DROP TABLE IF EXISTS dua_categories;

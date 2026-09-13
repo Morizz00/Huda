@@ -1,0 +1,16 @@
+export const EXPLORE_ITEMS = [
+  { href: "/hadith", title: "Hadith", body: "Collections with grade and source on every card" },
+  { href: "/duas", title: "Duas", body: "Provenance-first supplications" },
+  { href: "/adhkar", title: "Adhkar", body: "Morning, evening, and after-prayer sets" },
+  { href: "/dhikr", title: "Dhikr", body: "A private counter on this device" },
+  { href: "/calendar", title: "Calendar", body: "Hijri and Gregorian together" },
+  { href: "/zakat", title: "Zakat", body: "Estimate with the method shown" },
+  { href: "/mosques", title: "Mosques", body: "Nearby masjid finder" },
+  { href: "/hajj", title: "Hajj", body: "Rites and practical guidance" },
+  { href: "/umrah", title: "Umrah", body: "A quieter companion for the journey" },
+  { href: "/library", title: "Library", body: "Versioned, attributed texts" },
+  { href: "/learn", title: "Learn", body: "Structured paths, not a feed" },
+  { href: "/ramadan", title: "Ramadan", body: "Fasting, khatm, and nightly extras" },
+  { href: "/search", title: "Search", body: "Quran now; more corpora later" },
+  { href: "/qibla", title: "Qibla", body: "Direction of the Kaaba" },
+] as const;

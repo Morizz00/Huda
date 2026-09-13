@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Noto_Naskh_Arabic } from "next/font/google";
+import { AppShell } from "@/components/shell/AppShell";
+import { ThemeScript } from "@/components/shell/ThemeScript";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -7,23 +9,25 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const naskh = Noto_Naskh_Arabic({
+  variable: "--font-naskh",
+  subsets: ["arabic"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "HUDA — Guidance, wherever you are.",
-  description: "Quran, prayer, Qibla, Hadith, Duas, Adhkar, and Islamic knowledge — privacy-first and ad-free.",
+  description:
+    "Quran, prayer, Qibla, Hadith, Duas, Adhkar, and Islamic knowledge — privacy-first and ad-free.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${geistSans.variable} ${naskh.variable} h-full antialiased`}>
+      <body className="min-h-full bg-background font-sans text-foreground">
+        <ThemeScript />
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }

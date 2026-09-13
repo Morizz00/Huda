@@ -1,4 +1,4 @@
-const API_URL = process.env.API_URL ?? "http://localhost:8090/api/v1";
+const API_URL = process.env.API_URL ?? "http://localhost:8080/api/v1";
 
 export type Surah = {
   id: number;
@@ -38,10 +38,13 @@ export type SurahDetail = Surah & { ayahs: Ayah[] };
 export type AyahDetail = Ayah & { translations: AyahTranslation[] };
 
 async function apiFetch<T>(path: string): Promise<T | null> {
-  const res = await fetch(`${API_URL}${path}`, { cache: "no-store" });
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`API ${path} failed: ${res.status}`);
-  return res.json();
+  try {
+    const res = await fetch(`${API_URL}${path}`, { cache: "no-store" });
+    if (!res.ok) return null;
+    return (await res.json()) as T;
+  } catch {
+    return null;
+  }
 }
 
 export function listSurahs() {
@@ -50,4 +53,20 @@ export function listSurahs() {
 
 export function getSurahDetail(id: number) {
   return apiFetch<SurahDetail>(`/quran/surahs/${id}`);
+}
+
+export function getAyahDetail(id: number) {
+  return apiFetch<AyahDetail>(`/quran/ayah/${id}`);
+}
+
+export function searchAyahs(query: string, limit = 20) {
+  const q = encodeURIComponent(query);
+  return apiFetch<Ayah[]>(`/quran/search?q=${q}&limit=${limit}`).then((v) => v ?? []);
+}
+
+export function optionalText(value: string | { String?: string; Valid?: boolean } | null | undefined) {
+  if (!value) return null;
+  if (typeof value === "string") return value;
+  if (value.Valid === false) return null;
+  return value.String ?? null;
 }

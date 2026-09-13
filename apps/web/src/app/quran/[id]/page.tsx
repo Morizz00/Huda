@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { RememberSurah } from "@/components/quran/ContinueReading";
+import { VerseBlock } from "@/components/quran/VerseBlock";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { IconArrowLeft } from "@/components/ui/Icon";
+import { Page } from "@/components/ui/Page";
 import { getSurahDetail } from "@/lib/api";
 
 export default async function SurahPage({
@@ -9,39 +13,56 @@ export default async function SurahPage({
 }) {
   const { id } = await params;
   const surahId = Number(id);
-  if (!Number.isInteger(surahId)) notFound();
+  if (!Number.isInteger(surahId) || surahId < 1) {
+    return (
+      <Page width="wide">
+        <EmptyState title="Unknown surah" body="That address is not a valid surah number." />
+      </Page>
+    );
+  }
 
   const surah = await getSurahDetail(surahId);
-  if (!surah) notFound();
+
+  if (!surah) {
+    return (
+      <Page width="wide">
+        <Link href="/quran" className="inline-flex items-center gap-1 text-sm text-muted">
+          <IconArrowLeft size={16} /> All surahs
+        </Link>
+        <EmptyState
+          title="Surah unavailable"
+          body="The API did not return this surah. Confirm the Go server is running and the corpus is seeded."
+        />
+      </Page>
+    );
+  }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-2xl flex-col gap-6 px-6 py-10">
+    <Page width="wide">
+      <RememberSurah id={surah.id} name={surah.name_transliteration} />
       <header className="flex flex-col items-center gap-1 text-center">
-        <Link href="/quran" className="self-start text-sm text-neutral-500">
-          ← All surahs
+        <Link href="/quran" className="inline-flex items-center gap-1 self-start text-sm text-muted">
+          <IconArrowLeft size={16} /> All surahs
         </Link>
-        <p dir="rtl" className="mt-2 text-3xl font-semibold">
+        <p dir="rtl" lang="ar" className="mt-4 font-arabic text-4xl">
           {surah.name_arabic}
         </p>
         <h1 className="text-xl font-semibold">{surah.name_transliteration}</h1>
-        <p className="text-sm text-neutral-500">
+        <p className="text-sm text-muted">
           {surah.name_translation} · {surah.revelation_place} · {surah.ayah_count} ayahs
         </p>
       </header>
 
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4">
         {surah.ayahs.map((ayah) => (
-          <div key={ayah.id} className="rounded-xl border border-neutral-200 p-4 dark:border-neutral-800">
-            <div className="mb-2 text-xs text-neutral-400">{surah.id}:{ayah.ayah_number}</div>
-            <p dir="rtl" className="mb-2 text-right text-2xl leading-loose">
-              {ayah.text_arabic}
-            </p>
-            {ayah.text_transliteration && (
-              <p className="text-sm italic text-neutral-500">{ayah.text_transliteration}</p>
-            )}
-          </div>
+          <VerseBlock
+            key={ayah.id}
+            ayah={ayah}
+            surahId={surah.id}
+            href={`/quran/${surah.id}/${ayah.ayah_number}`}
+          />
         ))}
       </div>
-    </main>
+    </Page>
   );
 }

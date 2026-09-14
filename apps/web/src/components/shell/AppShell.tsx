@@ -52,7 +52,7 @@ function NavItems({ pathname }: { pathname: string }) {
           <Link
             key={href}
             href={href}
-            className={`flex flex-1 flex-col items-center gap-1 rounded-xl px-2 py-2 text-[11px] md:flex-none md:flex-row md:gap-3 md:px-3 md:py-2.5 md:text-sm ${
+            className={`focus-ring flex flex-1 flex-col items-center gap-1 rounded-xl px-2 py-2 text-[11px] transition-colors md:flex-none md:flex-row md:gap-3 md:px-3 md:py-2.5 md:text-sm ${
               active ? "bg-soft text-accent" : "text-muted hover:text-foreground"
             }`}
           >

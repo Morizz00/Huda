@@ -34,7 +34,7 @@ export function VerseBlock({
     </>
   );
 
-  const cls = "block rounded-2xl border border-stroke bg-card p-4";
+  const cls = "surface focus-ring block p-4";
   if (href) {
     return (
       <Link href={href} className={`${cls} transition-colors hover:border-accent/40`}>

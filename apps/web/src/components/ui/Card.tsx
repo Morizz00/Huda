@@ -11,7 +11,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-2xl border border-stroke bg-card ${padded ? "p-4" : ""} ${className}`}
+      className={`surface ${padded ? "p-4" : ""} ${className}`}
     >
       {children}
     </div>

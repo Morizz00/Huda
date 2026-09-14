@@ -19,7 +19,7 @@ export default async function QuranPage() {
         </div>
         <Link
           href="/search"
-          className="flex items-center gap-2 rounded-xl bg-soft px-3 py-2 text-sm text-muted"
+          className="focus-ring flex items-center gap-2 rounded-xl bg-soft px-3 py-2 text-sm text-muted transition-colors hover:text-foreground"
         >
           <IconSearch size={16} />
           Search
@@ -32,7 +32,7 @@ export default async function QuranPage() {
           body="The reader needs the API on port 8080 and a seeded database. Until then, prayer, Qibla, dhikr, and zakat still work on this device."
         />
       ) : (
-        <div className="overflow-hidden rounded-2xl border border-stroke bg-card">
+        <div className="surface overflow-hidden">
           <ul className="divide-y divide-stroke">
             {surahs.map((surah) => (
               <li key={surah.id}>

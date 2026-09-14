@@ -12,7 +12,7 @@ export function PrayerList({
   next: PrayerKey | "none" | null;
 }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-stroke bg-card">
+    <div className="surface overflow-hidden">
       {PRAYER_ROWS.map(([key, label]) => {
         const isNext = next === key;
         return (

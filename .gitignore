@@ -18,3 +18,4 @@ services/*/bin/
 # Env
 .env
 .env.local
+.gstack/

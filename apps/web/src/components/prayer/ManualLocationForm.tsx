@@ -26,7 +26,7 @@ export function ManualLocationForm({
   return (
     <form
       onSubmit={handle}
-      className="flex flex-col gap-3 rounded-2xl border border-stroke bg-card p-4"
+      className="surface flex flex-col gap-3 p-4"
     >
       <p className="text-sm text-muted">
         {hint ?? "Location wasn’t available. Enter coordinates manually."}
@@ -38,7 +38,7 @@ export function ManualLocationForm({
           placeholder="Latitude"
           value={lat}
           onChange={(e) => setLat(e.target.value)}
-          className="w-full rounded-xl border border-stroke bg-background px-3 py-2 text-sm"
+          className="focus-ring w-full rounded-xl border border-stroke bg-background px-3 py-2 text-sm transition-colors focus:border-accent"
           required
         />
         <input
@@ -47,7 +47,7 @@ export function ManualLocationForm({
           placeholder="Longitude"
           value={lng}
           onChange={(e) => setLng(e.target.value)}
-          className="w-full rounded-xl border border-stroke bg-background px-3 py-2 text-sm"
+          className="focus-ring w-full rounded-xl border border-stroke bg-background px-3 py-2 text-sm transition-colors focus:border-accent"
           required
         />
       </div>

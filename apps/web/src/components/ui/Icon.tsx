@@ -93,3 +93,27 @@ export function IconArrowLeft(props: IconProps) {
     </Base>
   );
 }
+
+export function IconCalendar(props: IconProps) {
+  return (
+    <Base {...props}>
+      <rect x="4" y="5.5" width="16" height="14.5" rx="2" />
+      <path d="M4 9.5h16" />
+      <path d="M8 3.5v3M16 3.5v3" />
+    </Base>
+  );
+}
+
+export function IconBeads(props: IconProps) {
+  return (
+    <Base {...props}>
+      <circle cx="20" cy="12" r="1.3" fill="currentColor" stroke="none" />
+      <circle cx="16" cy="18.9" r="1.3" fill="currentColor" stroke="none" />
+      <circle cx="8" cy="18.9" r="1.3" fill="currentColor" stroke="none" />
+      <circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none" />
+      <circle cx="8" cy="5.1" r="1.3" fill="currentColor" stroke="none" />
+      <circle cx="16" cy="5.1" r="1.5" fill="currentColor" stroke="none" />
+      <path d="M12 12v6.2" strokeDasharray="1 2.6" />
+    </Base>
+  );
+}

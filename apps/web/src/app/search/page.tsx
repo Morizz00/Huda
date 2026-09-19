@@ -37,7 +37,7 @@ export default async function SearchPage({
       {!query && (
         <EmptyState
           title="Look up a word"
-          body="Try an Arabic particle from Al-Fatiha when the API is running, such as الله."
+          body="Try الله or mercy from Al-Fatiha."
         />
       )}
 

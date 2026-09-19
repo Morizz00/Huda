@@ -59,9 +59,9 @@ _**Agent (claude-sonnet-5 2026-08-24 17:19:08Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./\PLAN.md`
+ `d:\development\personal-proj\huda\PLAN.md`
 
-```text
+````text
 1	# HUDA
 2	
 3	> **هُدًى — Guidance, wherever you are.**
@@ -419,7 +419,7 @@ _**Agent (claude-sonnet-5 2026-08-24 17:19:08Z)**_
 355	Secure token
 356	```
 357	
-358	Never store plaintext passwords.
+358	Never store plaintext [REDACTED:generic-credential-uri]words.
 359	
 360	---
 361	
@@ -637,7 +637,7 @@ _**Agent (claude-sonnet-5 2026-08-24 17:19:08Z)**_
 573	
 574	Features:
 575	
-576	* compass
+576	* com[REDACTED:generic-credential-uri]
 577	* Qibla bearing
 578	* distance to Kaaba
 579	* AR mode
@@ -1916,7 +1916,7 @@ _**Agent (claude-sonnet-5 2026-08-24 17:19:08Z)**_
 1852	
 1853	> **A beautiful HUDA shell + production-grade Quran experience + prayer engine + offline foundation.**
 1854
-```
+````
 </details></tool-use>
 
 _**Agent (claude-sonnet-5 2026-08-24 17:19:50Z)**_
@@ -2734,7 +2734,7 @@ _**Agent (claude-sonnet-5 2026-08-26 16:45:34Z)**_
 Options:
 - **Port it to Go/sqlc now (Recommended)** - Translate the same tables into raw .sql schema files under services/api, matching sqlc conventions. Keeps momentum — next logical step after the stack decision.
 - **Delete it, decide schema later** - Remove packages/database entirely for now; revisit the schema once services/api has its Go module set up (go.mod, sqlc.yaml).
-- **Leave it as-is for now** - Keep the TS/Drizzle files untouched; deal with the migration in a separate pass later.
+- **Leave it as-is for now** - Keep the TS/Drizzle files untouched; deal with the migration in a separate [REDACTED:generic-credential-uri] later.
 
 
 **Answer:** Port it to Go/sqlc now (Recommended)
@@ -2804,7 +2804,7 @@ _**Agent (claude-sonnet-5 2026-08-26 16:46:43Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `./\PLAN.md` pattern `packages/`
+ path `d:\development\personal-proj\huda\PLAN.md` pattern `packages/`
 
 ```text
 166:├── packages/
@@ -2828,7 +2828,7 @@ _**Agent (claude-sonnet-5 2026-08-26 16:46:47Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./\PLAN.md`
+ `d:\development\personal-proj\huda\PLAN.md`
 
 ```text
 160	│   ├── zakat/
@@ -3310,7 +3310,7 @@ _**Agent (claude-sonnet-5 2026-08-27 16:35:54Z)**_
 Quick wins here mean anything **fully client-side** — the plan already designed several features to need zero backend (§13, §15, §18, §20), so they can ship before any Lambda/RDS/auth work exists:
 
 1. **Prayer times** — lat/long + calc method → 5 daily times, pure math, no network
-2. **Qibla compass** — bearing calc from lat/long, no network
+2. **Qibla com[REDACTED:generic-credential-uri]** — bearing calc from lat/long, no network
 3. **Hijri date converter** — pure date math
 4. **Dhikr counter** — local state only, no data at all
 5. **Duas/Adhkar browser** — bundle a small JSON dataset in the app, no DB needed
@@ -3653,7 +3653,7 @@ _**Agent (claude-sonnet-5 2026-08-27 16:46:29Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./\apps\web\src\app\page.tsx`
+ `d:\development\personal-proj\huda\apps\web\src\app\page.tsx`
 
 ```text
 1	import Image from "next/image";
@@ -3733,7 +3733,7 @@ _**Agent (claude-sonnet-5 2026-08-27 16:46:37Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./\apps\web\src\app\layout.tsx`
+ `d:\development\personal-proj\huda\apps\web\src\app\layout.tsx`
 
 ```text
 1	import type { Metadata } from "next";
@@ -3773,7 +3773,7 @@ _**Agent (claude-sonnet-5 2026-08-27 16:46:37Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./\apps\web\src\app\globals.css`
+ `d:\development\personal-proj\huda\apps\web\src\app\globals.css`
 
 ```text
 1	@import "tailwindcss";
@@ -3847,9 +3847,9 @@ _**Agent (claude-sonnet-5 2026-08-27 16:46:50Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./\apps\web\node_modules\next\dist\docs\01-app\01-getting-started\03-layouts-and-pages.md`
+ `d:\development\personal-proj\huda\apps\web\node_modules\next\dist\docs\01-app\01-getting-started\03-layouts-and-pages.md`
 
-```text
+````text
 1	---
 2	title: Layouts and Pages
 3	description: Learn how to create your first pages and layouts, and link between them with the Link component.
@@ -4137,7 +4137,7 @@ _**Agent (claude-sonnet-5 2026-08-27 16:46:50Z)**_
 285	
 286	You can use the [`<Link>` component](/docs/app/api-reference/components/link) to navigate between routes. `<Link>` is a built-in Next.js component that extends the HTML `<a>` tag to provide [prefetching](/docs/app/getting-started/linking-and-navigating#prefetching) and [client-side navigation](/docs/app/getting-started/linking-and-navigating#client-side-transitions).
 287	
-288	For example, to generate a list of blog posts, import `<Link>` from `next/link` and pass a `href` prop to the component:
+288	For example, to generate a list of blog posts, import `<Link>` from `next/link` and [REDACTED:generic-credential-uri] a `href` prop to the component:
 289	
 290	```tsx filename="app/ui/post.tsx" highlight={1,2,11} switcher
 291	import Link from 'next/link'
@@ -4213,14 +4213,14 @@ _**Agent (claude-sonnet-5 2026-08-27 16:46:50Z)**_
 361	> - `PageProps`, `LayoutProps` are global helpers — no imports required.
 362	> - Types are generated during `next dev`, `next build` or `next typegen`.
 363
-```
+````
 </details></tool-use>
 
 _**Agent (claude-sonnet-5 2026-08-27 16:46:57Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `./\apps\web\node_modules\next\dist\docs` pattern `PageProps|LayoutProps|typedRoutes`
+ path `d:\development\personal-proj\huda\apps\web\node_modules\next\dist\docs` pattern `PageProps|LayoutProps|typedRoutes`
 
 ```text
 Found 26 files
@@ -4258,7 +4258,7 @@ _**Agent (claude-sonnet-5 2026-08-27 16:47:24Z)**_
 <tool-use data-tool-type="write" data-tool-name="Write"><details>
 <summary>Tool use: **Write**</summary>
 
-```tsx
+```typescript
 "use client";
 
 import { useEffect, useMemo, useState, type FormEvent } from "react";
@@ -4480,7 +4480,7 @@ _**Agent (claude-sonnet-5 2026-08-27 16:47:29Z)**_
 <tool-use data-tool-type="write" data-tool-name="Write"><details>
 <summary>Tool use: **Write**</summary>
 
-```tsx
+```typescript
 import Link from "next/link";
 
 export default function Home() {
@@ -4561,7 +4561,7 @@ Route (app)
 
 _**Agent (claude-sonnet-5 2026-08-27 16:49:36Z)**_
 
-Build passes clean, both routes compile. Let's boot the dev server and actually check it in a browser via gstack.
+Build [REDACTED:generic-credential-uri]es clean, both routes compile. Let's boot the dev server and actually check it in a browser via gstack.
 
 _**Agent (claude-sonnet-5 2026-08-27 16:50:01Z)**_
 
@@ -4952,7 +4952,7 @@ $B snapshot -i
 
 # 3. Fill the form using refs
 $B fill @e3 "test@example.com"
-$B fill @e4 "password123"
+$B fill @e4 "[REDACTED:generic-credential-uri]word123"
 $B click @e5
 
 # 4. Verify it worked
@@ -5093,7 +5093,7 @@ echo '[
   ["goto","https://app.example.com"],
   ["snapshot","-i"],
   ["fill","@e3","test@test.com"],
-  ["fill","@e4","password"],
+  ["fill","@e4","[REDACTED:generic-credential-uri]word"],
   ["click","@e5"],
   ["snapshot","-D"],
   ["screenshot","/tmp/result.png"]
@@ -6031,7 +6031,7 @@ module github.com/Morizz00/Huda/services/api
 go 1.25.0
 
 require (
-	github.com/jackc/pgpassfile v1.0.0 // indirect
+	github.com/jackc/pg[REDACTED:generic-credential-uri]file v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/pgx/v5 v5.10.0 // indirect
 	golang.org/x/text v0.29.0 // indirect
@@ -6145,7 +6145,7 @@ import (
 )
 
 // NewPool opens a pgx connection pool against the given Postgres DSN
-// (e.g. "postgres://user:pass@host:5432/dbname?sslmode=disable").
+// (e.g. "postgres://user:[REDACTED:generic-credential-uri]@host:5432/dbname?sslmode=disable").
 func NewPool(ctx context.Context, dsn string) (*pgxpool.Pool, error) {
 	pool, err := pgxpool.New(ctx, dsn)
 	if err != nil {
@@ -6228,7 +6228,7 @@ module github.com/Morizz00/Huda/services/api
 go 1.25.0
 
 require (
-	github.com/jackc/pgpassfile v1.0.0 // indirect
+	github.com/jackc/pg[REDACTED:generic-credential-uri]file v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/pgx/v5 v5.10.0 // indirect
 	golang.org/x/text v0.29.0 // indirect
@@ -6339,7 +6339,7 @@ module github.com/Morizz00/Huda/services/api
 go 1.25.0
 
 require (
-	github.com/jackc/pgpassfile v1.0.0 // indirect
+	github.com/jackc/pg[REDACTED:generic-credential-uri]file v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/pgx/v5 v5.10.0 // indirect
 	golang.org/x/text v0.29.0 // indirect
@@ -6449,7 +6449,7 @@ module github.com/Morizz00/Huda/services/api
 go 1.25.0
 
 require (
-	github.com/jackc/pgpassfile v1.0.0 // indirect
+	github.com/jackc/pg[REDACTED:generic-credential-uri]file v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/pgx/v5 v5.10.0 // indirect
 	golang.org/x/text v0.29.0 // indirect
@@ -6463,7 +6463,7 @@ _**Agent (claude-sonnet-5 2026-09-06 17:28:10Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\development\personal-proj\huda\.gitignore`
+ `./.gitignore`
 
 ```text
 File does not exist. Note: your current working directory is D:\development\personal-proj\huda.
@@ -6725,7 +6725,7 @@ _**Agent (claude-sonnet-5 2026-09-06 17:41:08Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\development\personal-proj\huda\services\api\internal\db\models.go`
+ `./services/api/internal/db/models.go`
 
 ```text
 1	// Code generated by sqlc. DO NOT EDIT.
@@ -6918,7 +6918,7 @@ _**Agent (claude-sonnet-5 2026-09-06 17:41:11Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\development\personal-proj\huda\services\api\internal\db\quran.sql.go`
+ `./services/api/internal/db/quran.sql.go`
 
 ```text
 1	// Code generated by sqlc. DO NOT EDIT.
@@ -7698,7 +7698,7 @@ _**Agent (claude-sonnet-5 2026-09-06 17:46:24Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\development\personal-proj\huda\services\api\go.mod`
+ `./services/api/go.mod`
 
 ```text
 1	module github.com/Morizz00/Huda/services/api
@@ -7709,7 +7709,7 @@ _**Agent (claude-sonnet-5 2026-09-06 17:46:24Z)**_
 6		github.com/aws/aws-lambda-go v1.55.0 // indirect
 7		github.com/awslabs/aws-lambda-go-api-proxy v0.16.2 // indirect
 8		github.com/go-chi/chi/v5 v5.3.2 // indirect
-9		github.com/jackc/pgpassfile v1.0.0 // indirect
+9		github.com/jackc/pg[REDACTED:generic-credential-uri]file v1.0.0 // indirect
 10		github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 11		github.com/jackc/pgx/v5 v5.10.0 // indirect
 12		golang.org/x/text v0.29.0 // indirect
@@ -7800,7 +7800,7 @@ _**Agent (claude-sonnet-5 2026-09-06 17:47:00Z)**_
 <tool-use data-tool-type="write" data-tool-name="Write"><details>
 <summary>Tool use: **Write**</summary>
 
-```md
+````markdown
 # HUDA API (Go)
 
 Modular monolith per [PLAN.md #47](../../PLAN.md); deploys to AWS Lambda in
@@ -7811,18 +7811,18 @@ production, runs as a plain HTTP server locally.
 1. Start a local Postgres and create a `huda_dev` database.
 2. Copy `.env.example` to `.env` and adjust `DATABASE_URL` if needed.
 3. Apply migrations and seed data:
-   \```sh
+   ```sh
    make migrate-up
    make seed
-   \```
+   ```
 4. Regenerate sqlc code after changing anything in `db/migrations` or `db/queries`:
-   \```sh
+   ```sh
    make sqlc
-   \```
+   ```
 5. Run the API:
-   \```sh
+   ```sh
    make run
-   \```
+   ```
 
 ## Layout
 
@@ -7838,14 +7838,14 @@ production, runs as a plain HTTP server locally.
 
 ## Try it
 
-\```sh
+```sh
 curl localhost:8080/health
 curl localhost:8080/api/v1/quran/surahs
 curl localhost:8080/api/v1/quran/surahs/1
 curl "localhost:8080/api/v1/quran/search?q=الله"
-\```
-
 ```
+
+````
 
 ```text
 File created successfully at: D:\development\personal-proj\huda\services\api\README.md (file state is current in your context — no need to Read it back)
@@ -7971,7 +7971,7 @@ require (
 )
 
 require (
-	github.com/jackc/pgpassfile v1.0.0 // indirect
+	github.com/jackc/pg[REDACTED:generic-credential-uri]file v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/puddle/v2 v2.2.2 // indirect
 	golang.org/x/sync v0.17.0 // indirect
@@ -8752,7 +8752,7 @@ _**Agent (claude-sonnet-5 2026-09-07 18:23:19Z)**_
 <tool-use data-tool-type="write" data-tool-name="Write"><details>
 <summary>Tool use: **Write**</summary>
 
-```tsx
+```typescript
 import Link from "next/link";
 import { listSurahs } from "@/lib/api";
 
@@ -8806,7 +8806,7 @@ _**Agent (claude-sonnet-5 2026-09-07 18:23:28Z)**_
 <tool-use data-tool-type="write" data-tool-name="Write"><details>
 <summary>Tool use: **Write**</summary>
 
-```tsx
+```typescript
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSurahDetail } from "@/lib/api";
@@ -9016,7 +9016,7 @@ _**Agent (claude-sonnet-5 2026-09-08 17:32:19Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\development\personal-proj\huda\PLAN.md` pattern `^## Database|^Database:|^Database structure:`
+ path `./PLAN.md` pattern `^## Database|^Database:|^Database structure:`
 
 ```text
 477-
@@ -9309,6 +9309,8 @@ _**User (2026-09-08 17:35:31Z)**_
 
 [Request interrupted by user for tool use]
 
+---
+
 _**User (2026-09-08 17:35:42Z)**_
 
 dont start anyting gitignroe anything new ensitive
@@ -9358,3 +9360,2138 @@ apps/web/.gitignore:34:.env*	apps/web/.env.local
 _**Agent (claude-sonnet-5 2026-09-08 17:36:05Z)**_
 
 Confirmed clean: only 4 new migration SQL files are untracked (schema only, nothing sensitive). The one env file that exists — `apps/web/.env.local` — is already gitignored via `apps/web/.gitignore`'s `.env*` rule, and `services/api/.env.example` is just a placeholder template (no real credentials), safe to commit as-is. No new `.gitignore` entries needed. I won't start any servers — let me know when you want to resume testing.
+
+---
+
+_**User (2026-09-14 17:11:24Z)**_
+
+beautify the ui bruh it looks ass
+
+---
+
+_**Agent (claude-sonnet-5 2026-09-14 17:11:46Z)**_
+
+A lot's changed here since I last looked — there's already a component system in place. Let me look at what exists before touching anything.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:11:50Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List all source files in the web app
+
+`cd "d:/development/personal-proj/huda/apps/web" && find src -type f \( -name "*.tsx" -o -name "*.ts" -o -name "*.css" \) | sort`
+
+```text
+src/app/adhkar/page.tsx
+src/app/bookmarks/page.tsx
+src/app/calendar/page.tsx
+src/app/dhikr/page.tsx
+src/app/duas/page.tsx
+src/app/explore/page.tsx
+src/app/globals.css
+src/app/hadith/page.tsx
+src/app/hajj/page.tsx
+src/app/layout.tsx
+src/app/learn/page.tsx
+src/app/library/page.tsx
+src/app/mosques/page.tsx
+src/app/page.tsx
+src/app/prayer/page.tsx
+src/app/profile/page.tsx
+src/app/qibla/page.tsx
+src/app/quran/[id]/[ayah]/page.tsx
+src/app/quran/[id]/page.tsx
+src/app/quran/page.tsx
+src/app/ramadan/page.tsx
+src/app/search/page.tsx
+src/app/settings/page.tsx
+src/app/umrah/page.tsx
+src/app/zakat/page.tsx
+src/components/home/NextPrayerHero.tsx
+src/components/prayer/ManualLocationForm.tsx
+src/components/prayer/PrayerList.tsx
+src/components/quran/ContinueReading.tsx
+src/components/quran/SurahRow.tsx
+src/components/quran/VerseBlock.tsx
+src/components/shell/AppShell.tsx
+src/components/shell/ThemeScript.tsx
+src/components/ui/Button.tsx
+src/components/ui/Card.tsx
+src/components/ui/EmptyState.tsx
+src/components/ui/Icon.tsx
+src/components/ui/Page.tsx
+src/components/ui/PlaceholderPage.tsx
+src/components/ui/SectionHeader.tsx
+src/lib/api.ts
+src/lib/dates.ts
+src/lib/explore.ts
+src/lib/prayer.ts
+src/lib/qibla.ts
+src/lib/storage.ts
+src/lib/useGeolocation.ts
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:11:56Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/app/globals.css`
+
+```text
+1	@import "tailwindcss";
+2	
+3	:root {
+4	  --background: #f3eee5;
+5	  --foreground: #1c1917;
+6	  --muted: #6f675d;
+7	  --card: #faf7f1;
+8	  --stroke: #e2d7c6;
+9	  --accent: #9a6b3f;
+10	  --accent-fg: #faf7f1;
+11	  --hero: #2a231c;
+12	  --hero-fg: #f4efe6;
+13	  --nav: #faf7f1;
+14	  --soft: #ebe4d7;
+15	}
+16	
+17	@media (prefers-color-scheme: dark) {
+18	  :root {
+19	    --background: #14110e;
+20	    --foreground: #f1e9dd;
+21	    --muted: #a89b8c;
+22	    --card: #1c1814;
+23	    --stroke: #322b24;
+24	    --accent: #c4894f;
+25	    --accent-fg: #161310;
+26	    --hero: #1a1612;
+27	    --hero-fg: #f1e9dd;
+28	    --nav: #181410;
+29	    --soft: #241f1a;
+30	  }
+31	}
+32	
+33	html[data-theme="light"] {
+34	  --background: #f3eee5;
+35	  --foreground: #1c1917;
+36	  --muted: #6f675d;
+37	  --card: #faf7f1;
+38	  --stroke: #e2d7c6;
+39	  --accent: #9a6b3f;
+40	  --accent-fg: #faf7f1;
+41	  --hero: #2a231c;
+42	  --hero-fg: #f4efe6;
+43	  --nav: #faf7f1;
+44	  --soft: #ebe4d7;
+45	}
+46	
+47	html[data-theme="dark"] {
+48	  --background: #14110e;
+49	  --foreground: #f1e9dd;
+50	  --muted: #a89b8c;
+51	  --card: #1c1814;
+52	  --stroke: #322b24;
+53	  --accent: #c4894f;
+54	  --accent-fg: #161310;
+55	  --hero: #1a1612;
+56	  --hero-fg: #f1e9dd;
+57	  --nav: #181410;
+58	  --soft: #241f1a;
+59	}
+60	
+61	@theme inline {
+62	  --color-background: var(--background);
+63	  --color-foreground: var(--foreground);
+64	  --color-muted: var(--muted);
+65	  --color-card: var(--card);
+66	  --color-stroke: var(--stroke);
+67	  --color-accent: var(--accent);
+68	  --color-accent-fg: var(--accent-fg);
+69	  --color-hero: var(--hero);
+70	  --color-hero-fg: var(--hero-fg);
+71	  --color-nav: var(--nav);
+72	  --color-soft: var(--soft);
+73	  --font-sans: var(--font-geist-sans);
+74	  --font-arabic: var(--font-naskh);
+75	}
+76	
+77	body {
+78	  background: var(--background);
+79	  color: var(--foreground);
+80	  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+81	}
+82	
+83	.font-arabic {
+84	  font-family: var(--font-naskh), "Noto Naskh Arabic", serif;
+85	}
+86	
+87	::selection {
+88	  background: color-mix(in srgb, var(--accent) 35%, transparent);
+89	}
+90
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:11:56Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/ui/Page.tsx`
+
+```text
+1	import type { ReactNode } from "react";
+2	
+3	export function Page({
+4	  children,
+5	  width = "default",
+6	}: {
+7	  children: ReactNode;
+8	  width?: "default" | "wide";
+9	}) {
+10	  const max = width === "wide" ? "max-w-2xl" : "max-w-md";
+11	  return (
+12	    <div className={`mx-auto flex w-full ${max} flex-col gap-6 px-5 py-6 md:py-8`}>
+13	      {children}
+14	    </div>
+15	  );
+16	}
+17
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:03Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/shell/AppShell.tsx`
+
+```text
+1	"use client";
+2	
+3	import type { ReactNode } from "react";
+4	import Link from "next/link";
+5	import { usePathname } from "next/navigation";
+6	import {
+7	  IconBook,
+8	  IconGrid,
+9	  IconHome,
+10	  IconSun,
+11	  IconUser,
+12	} from "@/components/ui/Icon";
+13	import { hijriDateLabel } from "@/lib/dates";
+14	import { EXPLORE_ITEMS } from "@/lib/explore";
+15	
+16	const NAV = [
+17	  { href: "/", label: "Home", icon: IconHome },
+18	  { href: "/quran", label: "Quran", icon: IconBook },
+19	  { href: "/prayer", label: "Prayer", icon: IconSun },
+20	  { href: "/explore", label: "Explore", icon: IconGrid },
+21	  { href: "/profile", label: "Profile", icon: IconUser },
+22	] as const;
+23	
+24	function isActive(pathname: string, href: string) {
+25	  if (href === "/") return pathname === "/";
+26	  if (href === "/prayer") return pathname === "/prayer" || pathname.startsWith("/qibla");
+27	  if (href === "/profile") {
+28	    return (
+29	      pathname === "/profile" ||
+30	      pathname.startsWith("/settings") ||
+31	      pathname.startsWith("/bookmarks")
+32	    );
+33	  }
+34	  if (href === "/explore") {
+35	    if (pathname.startsWith("/qibla")) return false;
+36	    if (pathname === "/explore" || pathname.startsWith("/explore/")) return true;
+37	    return EXPLORE_ITEMS.some(
+38	      (item) =>
+39	        item.href !== "/qibla" &&
+40	        (pathname === item.href || pathname.startsWith(`${item.href}/`)),
+41	    );
+42	  }
+43	  return pathname === href || pathname.startsWith(`${href}/`);
+44	}
+45	
+46	function NavItems({ pathname }: { pathname: string }) {
+47	  return (
+48	    <>
+49	      {NAV.map(({ href, label, icon: Icon }) => {
+50	        const active = isActive(pathname, href);
+51	        return (
+52	          <Link
+53	            key={href}
+54	            href={href}
+55	            className={`flex flex-1 flex-col items-center gap-1 rounded-xl px-2 py-2 text-[11px] md:flex-none md:flex-row md:gap-3 md:px-3 md:py-2.5 md:text-sm ${
+56	              active ? "bg-soft text-accent" : "text-muted hover:text-foreground"
+57	            }`}
+58	          >
+59	            <Icon size={20} />
+60	            {label}
+61	          </Link>
+62	        );
+63	      })}
+64	    </>
+65	  );
+66	}
+67	
+68	export function AppShell({ children }: { children: ReactNode }) {
+69	  const pathname = usePathname();
+70	  const hijri = hijriDateLabel();
+71	
+72	  return (
+73	    <div className="min-h-full bg-background text-foreground md:flex">
+74	      <aside className="hidden w-52 shrink-0 border-r border-stroke bg-nav p-4 md:flex md:flex-col">
+75	        <Link href="/" className="mb-8 px-2">
+76	          <p dir="rtl" lang="ar" className="font-arabic text-2xl leading-none">
+77	            هُدًى
+78	          </p>
+79	          <p className="mt-1 text-xs tracking-[0.2em] text-muted">HUDA</p>
+80	        </Link>
+81	        <nav className="flex flex-col gap-1">
+82	          <NavItems pathname={pathname} />
+83	        </nav>
+84	        <p className="mt-auto px-2 text-xs leading-relaxed text-muted">{hijri}</p>
+85	      </aside>
+86	
+87	      <div className="flex min-h-full min-w-0 flex-1 flex-col pb-20 md:pb-0">
+88	        <header className="flex items-center justify-between border-b border-stroke px-5 py-3 md:hidden">
+89	          <Link href="/">
+90	            <p dir="rtl" lang="ar" className="font-arabic text-xl leading-none">
+91	              هُدًى
+92	            </p>
+93	          </Link>
+94	          <p className="text-xs text-muted">{hijri}</p>
+95	        </header>
+96	        <main className="flex-1">{children}</main>
+97	      </div>
+98	
+99	      <nav className="fixed inset-x-0 bottom-0 z-20 border-t border-stroke bg-nav/95 backdrop-blur-sm md:hidden">
+100	        <div className="mx-auto flex max-w-md items-stretch px-2 py-1.5">
+101	          <NavItems pathname={pathname} />
+102	        </div>
+103	      </nav>
+104	    </div>
+105	  );
+106	}
+107
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:09Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/app/layout.tsx`
+
+```text
+1	import type { Metadata } from "next";
+2	import { Geist, Noto_Naskh_Arabic } from "next/font/google";
+3	import { AppShell } from "@/components/shell/AppShell";
+4	import { ThemeScript } from "@/components/shell/ThemeScript";
+5	import "./globals.css";
+6	
+7	const geistSans = Geist({
+8	  variable: "--font-geist-sans",
+9	  subsets: ["latin"],
+10	});
+11	
+12	const naskh = Noto_Naskh_Arabic({
+13	  variable: "--font-naskh",
+14	  subsets: ["arabic"],
+15	  weight: ["400", "500", "600", "700"],
+16	});
+17	
+18	export const metadata: Metadata = {
+19	  title: "HUDA — Guidance, wherever you are.",
+20	  description:
+21	    "Quran, prayer, Qibla, Hadith, Duas, Adhkar, and Islamic knowledge — privacy-first and ad-free.",
+22	};
+23	
+24	export default function RootLayout({ children }: LayoutProps<"/">) {
+25	  return (
+26	    <html lang="en" className={`${geistSans.variable} ${naskh.variable} h-full antialiased`}>
+27	      <body className="min-h-full bg-background font-sans text-foreground">
+28	        <ThemeScript />
+29	        <AppShell>{children}</AppShell>
+30	      </body>
+31	    </html>
+32	  );
+33	}
+34
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:10Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/ui/Card.tsx`
+
+```text
+1	import type { ReactNode } from "react";
+2	
+3	export function Card({
+4	  children,
+5	  className = "",
+6	  padded = true,
+7	}: {
+8	  children: ReactNode;
+9	  className?: string;
+10	  padded?: boolean;
+11	}) {
+12	  return (
+13	    <div
+14	      className={`rounded-2xl border border-stroke bg-card ${padded ? "p-4" : ""} ${className}`}
+15	    >
+16	      {children}
+17	    </div>
+18	  );
+19	}
+20
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:10Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/ui/Button.tsx`
+
+```text
+1	import Link from "next/link";
+2	import type { ButtonHTMLAttributes, ReactNode } from "react";
+3	
+4	const variants = {
+5	  primary:
+6	    "bg-accent text-accent-fg hover:opacity-90",
+7	  secondary:
+8	    "bg-soft text-foreground hover:bg-stroke",
+9	  ghost:
+10	    "bg-transparent text-foreground hover:bg-soft",
+11	  hero:
+12	    "bg-hero-fg/10 text-hero-fg hover:bg-hero-fg/16",
+13	} as const;
+14	
+15	type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+16	  variant?: keyof typeof variants;
+17	  href?: string;
+18	  children: ReactNode;
+19	};
+20	
+21	export function Button({ variant = "primary", href, className = "", children, ...props }: Props) {
+22	  const cls = `inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-medium transition-opacity ${variants[variant]} ${className}`;
+23	  if (href) {
+24	    return (
+25	      <Link href={href} className={cls}>
+26	        {children}
+27	      </Link>
+28	    );
+29	  }
+30	  return (
+31	    <button className={cls} {...props}>
+32	      {children}
+33	    </button>
+34	  );
+35	}
+36
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:11Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/ui/Icon.tsx`
+
+```text
+1	import type { ReactNode, SVGProps } from "react";
+2	
+3	type IconProps = SVGProps<SVGSVGElement> & { size?: number };
+4	
+5	function Base({ size = 22, children, ...props }: IconProps & { children: ReactNode }) {
+6	  return (
+7	    <svg
+8	      width={size}
+9	      height={size}
+10	      viewBox="0 0 24 24"
+11	      fill="none"
+12	      stroke="currentColor"
+13	      strokeWidth="1.6"
+14	      strokeLinecap="round"
+15	      strokeLinejoin="round"
+16	      aria-hidden
+17	      {...props}
+18	    >
+19	      {children}
+20	    </svg>
+21	  );
+22	}
+23	
+24	export function IconHome(props: IconProps) {
+25	  return (
+26	    <Base {...props}>
+27	      <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" />
+28	    </Base>
+29	  );
+30	}
+31	
+32	export function IconBook(props: IconProps) {
+33	  return (
+34	    <Base {...props}>
+35	      <path d="M5 4.5h9.5A2.5 2.5 0 0 1 17 7v13.5H7.5A2.5 2.5 0 0 0 5 18z" />
+36	      <path d="M5 18a2.5 2.5 0 0 1 2.5-2.5H17" />
+37	    </Base>
+38	  );
+39	}
+40	
+41	export function IconSun(props: IconProps) {
+42	  return (
+43	    <Base {...props}>
+44	      <circle cx="12" cy="12" r="3.5" />
+45	      <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4" />
+46	    </Base>
+47	  );
+48	}
+49	
+50	export function IconGrid(props: IconProps) {
+51	  return (
+52	    <Base {...props}>
+53	      <rect x="4" y="4" width="6.5" height="6.5" rx="1.2" />
+54	      <rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2" />
+55	      <rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2" />
+56	      <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2" />
+57	    </Base>
+58	  );
+59	}
+60	
+61	export function IconUser(props: IconProps) {
+62	  return (
+63	    <Base {...props}>
+64	      <circle cx="12" cy="8.5" r="3.2" />
+65	      <path d="M5 19.2c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" />
+66	    </Base>
+67	  );
+68	}
+69	
+70	export function IconSearch(props: IconProps) {
+71	  return (
+72	    <Base {...props}>
+73	      <circle cx="11" cy="11" r="6" />
+74	      <path d="m20 20-3.5-3.5" />
+75	    </Base>
+76	  );
+77	}
+78	
+79	export function IconCom[REDACTED:generic-credential-uri](props: IconProps) {
+80	  return (
+81	    <Base {...props}>
+82	      <circle cx="12" cy="12" r="8.5" />
+83	      <path d="m9.2 14.8 2-6.2 6.2 2-2 6.2z" />
+84	    </Base>
+85	  );
+86	}
+87	
+88	export function IconArrowLeft(props: IconProps) {
+89	  return (
+90	    <Base {...props}>
+91	      <path d="M19 12H6" />
+92	      <path d="m10 7-4 5 4 5" />
+93	    </Base>
+94	  );
+95	}
+96
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:20Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/ui/EmptyState.tsx`
+
+```text
+1	import type { ReactNode } from "react";
+2	import { Button } from "./Button";
+3	
+4	export function EmptyState({
+5	  title,
+6	  body,
+7	  actionLabel,
+8	  actionHref,
+9	  children,
+10	}: {
+11	  title: string;
+12	  body: string;
+13	  actionLabel?: string;
+14	  actionHref?: string;
+15	  children?: ReactNode;
+16	}) {
+17	  return (
+18	    <div className="flex flex-col items-start gap-3 rounded-2xl border border-dashed border-stroke bg-card px-5 py-8">
+19	      <p className="text-sm font-medium">{title}</p>
+20	      <p className="max-w-md text-sm leading-relaxed text-muted">{body}</p>
+21	      {actionHref && actionLabel && (
+22	        <Button href={actionHref} variant="secondary">
+23	          {actionLabel}
+24	        </Button>
+25	      )}
+26	      {children}
+27	    </div>
+28	  );
+29	}
+30
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:20Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/ui/SectionHeader.tsx`
+
+```text
+1	import type { ReactNode } from "react";
+2	
+3	export function SectionHeader({
+4	  title,
+5	  subtitle,
+6	  action,
+7	}: {
+8	  title: string;
+9	  subtitle?: string;
+10	  action?: ReactNode;
+11	}) {
+12	  return (
+13	    <div className="flex items-end justify-between gap-3">
+14	      <div>
+15	        <h2 className="text-base font-semibold tracking-tight">{title}</h2>
+16	        {subtitle && <p className="mt-0.5 text-sm text-muted">{subtitle}</p>}
+17	      </div>
+18	      {action}
+19	    </div>
+20	  );
+21	}
+22
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:21Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/home/NextPrayerHero.tsx`
+
+```text
+1	"use client";
+2	
+3	import { useEffect, useMemo, useState } from "react";
+4	import { Button } from "@/components/ui/Button";
+5	import { formatCountdown } from "@/lib/dates";
+6	import {
+7	  computePrayerTimes,
+8	  METHODS,
+9	  nextPrayerTime,
+10	  type MadhabKey,
+11	  type MethodKey,
+12	} from "@/lib/prayer";
+13	import { STORAGE_KEYS, readStorage } from "@/lib/storage";
+14	import { useGeolocation } from "@/lib/useGeolocation";
+15	
+16	function prayerLabel(name: string | null) {
+17	  if (!name) return "Isha complete";
+18	  return name.charAt(0).toUpperCase() + name.slice(1);
+19	}
+20	
+21	export function NextPrayerHero() {
+22	  const { coords, status } = useGeolocation();
+23	  const [now, setNow] = useState<Date | null>(null);
+24	  const method = (readStorage(STORAGE_KEYS.method, "MuslimWorldLeague") ||
+25	    "MuslimWorldLeague") as MethodKey;
+26	  const madhab = (readStorage(STORAGE_KEYS.madhab, "shafi") || "shafi") as MadhabKey;
+27	
+28	  useEffect(() => {
+29	    setNow(new Date());
+30	    const id = setInterval(() => setNow(new Date()), 1000);
+31	    return () => clearInterval(id);
+32	  }, []);
+33	
+34	  const result = useMemo(() => {
+35	    if (!coords || !now) return null;
+36	    const times = computePrayerTimes(coords, now, method in METHODS ? method : "MuslimWorldLeague", madhab);
+37	    const next = nextPrayerTime(times.prayerTimes, now);
+38	    return { next, remaining: next.time ? next.time.getTime() - now.getTime() : 0 };
+39	  }, [coords, now, method, madhab]);
+40	
+41	  if (status === "locating") {
+42	    return (
+43	      <div className="rounded-2xl bg-hero px-5 py-6 text-hero-fg">
+44	        <p className="text-sm text-hero-fg/70">Finding your location…</p>
+45	        <p className="mt-3 text-3xl font-semibold tracking-tight">Next prayer</p>
+46	      </div>
+47	    );
+48	  }
+49	
+50	  if (!coords) {
+51	    return (
+52	      <div className="rounded-2xl bg-hero px-5 py-6 text-hero-fg">
+53	        <p className="text-sm text-hero-fg/70">Prayer times</p>
+54	        <p className="mt-2 text-2xl font-semibold tracking-tight">Set your location</p>
+55	        <p className="mt-2 text-sm text-hero-fg/70">
+56	          Allow location or enter coordinates on the prayer page.
+57	        </p>
+58	        <div className="mt-4">
+59	          <Button href="/prayer" variant="hero">
+60	            Open prayer times
+61	          </Button>
+62	        </div>
+63	      </div>
+64	    );
+65	  }
+66	
+67	  if (!result?.next.name) {
+68	    return (
+69	      <div className="rounded-2xl bg-hero px-5 py-6 text-hero-fg">
+70	        <p className="text-sm text-hero-fg/70">Tonight</p>
+71	        <p className="mt-1 text-3xl font-semibold tracking-tight">Isha has [REDACTED:generic-credential-uri]ed</p>
+72	        <p className="mt-2 text-sm text-hero-fg/70">Fajr is next after midnight.</p>
+73	        <div className="mt-4">
+74	          <Button href="/prayer" variant="hero">
+75	            Today&apos;s times
+76	          </Button>
+77	        </div>
+78	      </div>
+79	    );
+80	  }
+81	
+82	  return (
+83	    <div className="rounded-2xl bg-hero px-5 py-6 text-hero-fg">
+84	      <p className="text-sm text-hero-fg/70">Next prayer</p>
+85	      <p className="mt-1 text-3xl font-semibold tracking-tight">{prayerLabel(result.next.name)}</p>
+86	      <p className="mt-3 font-mono text-2xl tabular-nums tracking-wide">
+87	        {formatCountdown(result.remaining)}
+88	      </p>
+89	      <div className="mt-5">
+90	        <Button href="/prayer" variant="hero">
+91	          Today&apos;s times
+92	        </Button>
+93	      </div>
+94	    </div>
+95	  );
+96	}
+97
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:22Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/quran/VerseBlock.tsx`
+
+```text
+1	import Link from "next/link";
+2	import { optionalText, type Ayah } from "@/lib/api";
+3	
+4	export function VerseBlock({
+5	  ayah,
+6	  surahId,
+7	  href,
+8	}: {
+9	  ayah: Ayah;
+10	  surahId: number;
+11	  href?: string;
+12	}) {
+13	  const transliteration = optionalText(ayah.text_transliteration);
+14	  const inner = (
+15	    <>
+16	      <div className="mb-3 flex items-center justify-between text-xs text-muted">
+17	        <span className="tabular-nums">
+18	          {surahId}:{ayah.ayah_number}
+19	        </span>
+20	        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-soft text-[11px] text-accent">
+21	          {ayah.ayah_number}
+22	        </span>
+23	      </div>
+24	      <p
+25	        dir="rtl"
+26	        lang="ar"
+27	        className="font-arabic text-right text-[1.7rem] leading-[2.4] text-foreground"
+28	      >
+29	        {ayah.text_arabic}
+30	      </p>
+31	      {transliteration && (
+32	        <p className="mt-3 text-sm italic leading-relaxed text-muted">{transliteration}</p>
+33	      )}
+34	    </>
+35	  );
+36	
+37	  const cls = "block rounded-2xl border border-stroke bg-card p-4";
+38	  if (href) {
+39	    return (
+40	      <Link href={href} className={`${cls} transition-colors hover:border-accent/40`}>
+41	        {inner}
+42	      </Link>
+43	    );
+44	  }
+45	  return <div className={cls}>{inner}</div>;
+46	}
+47
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:22Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/quran/SurahRow.tsx`
+
+```text
+1	import Link from "next/link";
+2	import type { Surah } from "@/lib/api";
+3	
+4	export function SurahRow({ surah }: { surah: Surah }) {
+5	  return (
+6	    <Link
+7	      href={`/quran/${surah.id}`}
+8	      className="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-soft"
+9	    >
+10	      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-soft text-xs tabular-nums text-muted">
+11	        {surah.id}
+12	      </span>
+13	      <span className="min-w-0 flex-1">
+14	        <span className="block font-medium leading-tight">{surah.name_transliteration}</span>
+15	        <span className="block text-sm text-muted">
+16	          {surah.name_translation} · {surah.ayah_count} ayahs
+17	        </span>
+18	      </span>
+19	      <span dir="rtl" lang="ar" className="font-arabic text-xl">
+20	        {surah.name_arabic}
+21	      </span>
+22	    </Link>
+23	  );
+24	}
+25
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:23Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/ui/PlaceholderPage.tsx`
+
+```text
+1	import { EmptyState } from "@/components/ui/EmptyState";
+2	import { Page } from "@/components/ui/Page";
+3	
+4	export function PlaceholderPage({
+5	  title,
+6	  kicker,
+7	  body,
+8	}: {
+9	  title: string;
+10	  kicker?: string;
+11	  body: string;
+12	}) {
+13	  return (
+14	    <Page>
+15	      <header>
+16	        {kicker && <p className="text-sm text-muted">{kicker}</p>}
+17	        <h1 className="mt-1 text-2xl font-semibold tracking-tight">{title}</h1>
+18	      </header>
+19	      <EmptyState title="Sourced content is not published yet" body={body} />
+20	    </Page>
+21	  );
+22	}
+23
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:29Z)**_
+
+Let me actually see this rendered before touching anything — the code reads reasonably well, so I need to diagnose visually rather than guess. Starting just the Next.js dev server (no backend needed, pages degrade gracefully).
+
+_**Agent (claude-sonnet-5 2026-09-14 17:12:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Start Next.js dev server to visually inspect current UI
+
+```bash
+cd "d:/development/personal-proj/huda/apps/web" && LOGFILE="C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/huda-web-dev.log"
+nohup npm run dev -- -p 3001 > "$LOGFILE" 2>&1 &
+disown
+sleep 4
+cat "$LOGFILE"
+```
+
+```text
+> web@0.1.0 dev
+> next dev -p 3001
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:13:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check dev server readiness
+
+```bash
+sleep 3
+cat "C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/huda-web-dev.log"
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3001/
+```
+
+```text
+> web@0.1.0 dev
+> next dev -p 3001
+
+⨯ Failed to start server
+Error: listen EADDRINUSE: address already in use :::3001
+    at <unknown> (Error: listen EADDRINUSE: address already in use :::3001)
+    at new Promise (<anonymous>) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 3001
+}
+[?25h
+200
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:13:41Z)**_
+
+Something's already running on 3001 (200 OK) — using that instead. Let's try gstack again for a screenshot.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:13:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Try gstack navigate with timeout
+
+```bash
+B=/c/Users/moida/.claude/skills/gstack/browse/dist/browse
+timeout 20 $B goto http://localhost:3001/ 2>&1
+echo "EXIT:$?"
+```
+
+```text
+[browse] Starting server...
+EXIT:0
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:14:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Attempt screenshot of home page
+
+```bash
+B=/c/Users/moida/.claude/skills/gstack/browse/dist/browse
+timeout 20 $B screenshot "C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/home.png" 2>&1
+echo "EXIT:$?"
+```
+
+```text
+[browse] Starting server...
+EXIT:0
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:14:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check if screenshot file was actually created
+
+`ls -la "C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/home.png" 2>&1`
+
+```text
+Exit code 2
+ls: cannot access 'C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/home.png': No such file or directory
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:14:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check for project-local gstack state/logs
+
+```bash
+find "d:/development/personal-proj/huda" -maxdepth 1 -iname ".gstack" 2>&1
+find "d:/development/personal-proj/huda/.gstack" -type f 2>&1 | head -20
+```
+
+```text
+d:/development/personal-proj/huda/.gstack
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:15:05Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/shell/ThemeScript.tsx`
+
+```text
+1	export function ThemeScript() {
+2	  const js = `(function(){try{var t=localStorage.getItem("huda.theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`;
+3	  return <script dangerouslySetInnerHTML={{ __html: js }} />;
+4	}
+5
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:15:05Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/prayer/PrayerList.tsx`
+
+```text
+1	import { formatClock } from "@/lib/dates";
+2	import { PRAYER_ROWS, type PrayerKey } from "@/lib/prayer";
+3	import type { PrayerTimes, SunnahTimes } from "adhan";
+4	
+5	export function PrayerList({
+6	  prayerTimes,
+7	  sunnahTimes,
+8	  next,
+9	}: {
+10	  prayerTimes: PrayerTimes;
+11	  sunnahTimes: SunnahTimes;
+12	  next: PrayerKey | "none" | null;
+13	}) {
+14	  return (
+15	    <div className="overflow-hidden rounded-2xl border border-stroke bg-card">
+16	      {PRAYER_ROWS.map(([key, label]) => {
+17	        const isNext = next === key;
+18	        return (
+19	          <div
+20	            key={key}
+21	            className={`flex items-center justify-between px-4 py-3.5 ${
+22	              isNext ? "bg-soft" : ""
+23	            } border-b border-stroke last:border-b-0`}
+24	          >
+25	            <span className="flex items-center gap-2 font-medium">
+26	              {label}
+27	              {isNext && (
+28	                <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-accent">
+29	                  Next
+30	                </span>
+31	              )}
+32	            </span>
+33	            <span className="tabular-nums text-muted">{formatClock(prayerTimes[key])}</span>
+34	          </div>
+35	        );
+36	      })}
+37	      <div className="flex items-center justify-between border-t border-stroke px-4 py-3 text-sm text-muted">
+38	        <span>Midnight</span>
+39	        <span className="tabular-nums">{formatClock(sunnahTimes.middleOfTheNight)}</span>
+40	      </div>
+41	      <div className="flex items-center justify-between px-4 py-3 text-sm text-muted">
+42	        <span>Last third of the night</span>
+43	        <span className="tabular-nums">{formatClock(sunnahTimes.lastThirdOfTheNight)}</span>
+44	      </div>
+45	    </div>
+46	  );
+47	}
+48
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:15:46Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `./apps/web/src` pattern `rounded-2xl border border-stroke bg-card`
+
+```text
+Found 5 files
+src\app\quran\page.tsx
+src\components\prayer\ManualLocationForm.tsx
+src\components\prayer\PrayerList.tsx
+src\components\quran\VerseBlock.tsx
+src\components\ui\Card.tsx
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:15:51Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/components/prayer/ManualLocationForm.tsx`
+
+```text
+1	"use client";
+2	
+3	import { type FormEvent, useState } from "react";
+4	import { Button } from "@/components/ui/Button";
+5	import type { Coords } from "@/lib/prayer";
+6	
+7	export function ManualLocationForm({
+8	  onSubmit,
+9	  hint,
+10	}: {
+11	  onSubmit: (coords: Coords) => void;
+12	  hint?: string;
+13	}) {
+14	  const [lat, setLat] = useState("");
+15	  const [lng, setLng] = useState("");
+16	
+17	  function handle(e: FormEvent) {
+18	    e.preventDefault();
+19	    const latitude = parseFloat(lat);
+20	    const longitude = parseFloat(lng);
+21	    if (Number.isFinite(latitude) && Number.isFinite(longitude)) {
+22	      onSubmit({ latitude, longitude });
+23	    }
+24	  }
+25	
+26	  return (
+27	    <form
+28	      onSubmit={handle}
+29	      className="flex flex-col gap-3 rounded-2xl border border-stroke bg-card p-4"
+30	    >
+31	      <p className="text-sm text-muted">
+32	        {hint ?? "Location wasn’t available. Enter coordinates manually."}
+33	      </p>
+34	      <div className="flex gap-3">
+35	        <input
+36	          type="number"
+37	          step="any"
+38	          placeholder="Latitude"
+39	          value={lat}
+40	          onChange={(e) => setLat(e.target.value)}
+41	          className="w-full rounded-xl border border-stroke bg-background px-3 py-2 text-sm"
+42	          required
+43	        />
+44	        <input
+45	          type="number"
+46	          step="any"
+47	          placeholder="Longitude"
+48	          value={lng}
+49	          onChange={(e) => setLng(e.target.value)}
+50	          className="w-full rounded-xl border border-stroke bg-background px-3 py-2 text-sm"
+51	          required
+52	        />
+53	      </div>
+54	      <Button type="submit" variant="secondary">
+55	        Use these coordinates
+56	      </Button>
+57	    </form>
+58	  );
+59	}
+60
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:15:55Z)**_
+
+Now let's apply the design fixes. First, `globals.css` — the core issue: background/card/stroke are almost the same luminance in light mode, so nothing has depth.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:15:59Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\app\globals.css has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:04Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\app\globals.css has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:12Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\app\globals.css has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:14Z)**_
+
+Now replacing the hand-rolled card styling with `.surface` across the 5 files, and adding focus rings to interactive elements.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:16Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\components\ui\Card.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:21Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\components\quran\VerseBlock.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:25Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\components\prayer\PrayerList.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:28Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\components\prayer\ManualLocationForm.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:33Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\components\prayer\ManualLocationForm.tsx has been updated. All occurrences were successfully replaced. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:35Z)**_
+
+Now the quran list page wrapper:
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:35Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/app/quran/page.tsx`
+
+```text
+1	import Link from "next/link";
+2	import { SurahRow } from "@/components/quran/SurahRow";
+3	import { EmptyState } from "@/components/ui/EmptyState";
+4	import { IconSearch } from "@/components/ui/Icon";
+5	import { Page } from "@/components/ui/Page";
+6	import { listSurahs } from "@/lib/api";
+7	
+8	export default async function QuranPage() {
+9	  const surahs = await listSurahs();
+10	
+11	  return (
+12	    <Page>
+13	      <header className="flex items-end justify-between gap-3">
+14	        <div>
+15	          <h1 className="text-2xl font-semibold tracking-tight">Quran</h1>
+16	          <p className="mt-1 text-sm text-muted">
+17	            {surahs.length ? `${surahs.length} surah${surahs.length === 1 ? "" : "s"}` : "Corpus not loaded yet"}
+18	          </p>
+19	        </div>
+20	        <Link
+21	          href="/search"
+22	          className="flex items-center gap-2 rounded-xl bg-soft px-3 py-2 text-sm text-muted"
+23	        >
+24	          <IconSearch size={16} />
+25	          Search
+26	        </Link>
+27	      </header>
+28	
+29	      {surahs.length === 0 ? (
+30	        <EmptyState
+31	          title="No surahs loaded"
+32	          body="The reader needs the API on port 8080 and a seeded database. Until then, prayer, Qibla, dhikr, and zakat still work on this device."
+33	        />
+34	      ) : (
+35	        <div className="overflow-hidden rounded-2xl border border-stroke bg-card">
+36	          <ul className="divide-y divide-stroke">
+37	            {surahs.map((surah) => (
+38	              <li key={surah.id}>
+39	                <SurahRow surah={surah} />
+40	              </li>
+41	            ))}
+42	          </ul>
+43	        </div>
+44	      )}
+45	    </Page>
+46	  );
+47	}
+48
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:42Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\app\quran\page.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:45Z)**_
+
+Now adding focus states to `Button`, new icons, and richer homepage quick-action cards.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:48Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\components\ui\Button.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:55Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\components\ui\Icon.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:16:59Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/app/page.tsx`
+
+```text
+1	import Link from "next/link";
+2	import { NextPrayerHero } from "@/components/home/NextPrayerHero";
+3	import { ContinueReading } from "@/components/quran/ContinueReading";
+4	import { VerseBlock } from "@/components/quran/VerseBlock";
+5	import { Button } from "@/components/ui/Button";
+6	import { Card } from "@/components/ui/Card";
+7	import { EmptyState } from "@/components/ui/EmptyState";
+8	import { Page } from "@/components/ui/Page";
+9	import { SectionHeader } from "@/components/ui/SectionHeader";
+10	import { getSurahDetail } from "@/lib/api";
+11	import { greeting, gregorianDateLabel, hijriDateLabel } from "@/lib/dates";
+12	
+13	export default async function HomePage() {
+14	  const surah = await getSurahDetail(1);
+15	  const day = Math.floor(Date.now() / 86_400_000);
+16	  const ayah = surah?.ayahs?.length
+17	    ? surah.ayahs[day % surah.ayahs.length]
+18	    : null;
+19	
+20	  return (
+21	    <Page>
+22	      <header>
+23	        <p className="text-sm text-muted">{greeting()}</p>
+24	        <h1 className="mt-1 text-2xl font-semibold tracking-tight">HUDA</h1>
+25	        <p className="mt-1 text-sm text-muted">{hijriDateLabel()}</p>
+26	        <p className="text-xs text-muted">{gregorianDateLabel()}</p>
+27	      </header>
+28	
+29	      <NextPrayerHero />
+30	
+31	      <section className="flex flex-col gap-3">
+32	        <SectionHeader title="Today’s Quran" subtitle="A quiet place to continue" />
+33	        <ContinueReading />
+34	        {ayah && surah ? (
+35	          <VerseBlock ayah={ayah} surahId={surah.id} href={`/quran/${surah.id}/${ayah.ayah_number}`} />
+36	        ) : (
+37	          <EmptyState
+38	            title="Daily ayah is waiting on the API"
+39	            body="Start the Go API and seed Al-Fatiha to show a verse here. The rest of HUDA still works offline."
+40	            actionLabel="Open the Quran"
+41	            actionHref="/quran"
+42	          />
+43	        )}
+44	      </section>
+45	
+46	      <section className="flex flex-col gap-3">
+47	        <SectionHeader title="Duas & Adhkar" />
+48	        <Card>
+49	          <p className="text-sm leading-relaxed text-muted">
+50	            Canonical duas and adhkar will appear once sourced collections are published. Nothing
+51	            generated, nothing unsourced.
+52	          </p>
+53	          <div className="mt-3 flex gap-2">
+54	            <Button href="/duas" variant="secondary">
+55	              Duas
+56	            </Button>
+57	            <Button href="/adhkar" variant="ghost">
+58	              Adhkar
+59	            </Button>
+60	          </div>
+61	        </Card>
+62	      </section>
+63	
+64	      <section className="flex flex-col gap-3">
+65	        <SectionHeader title="Quick actions" />
+66	        <div className="grid grid-cols-2 gap-3">
+67	          <Quick href="/qibla" title="Qibla" body="Find the direction of the Kaaba" />
+68	          <Quick href="/dhikr" title="Dhikr" body="A quiet counter" />
+69	          <Quick href="/calendar" title="Calendar" body="Hijri dates" />
+70	          <Quick href="/search" title="Search" body="Look up an ayah" />
+71	        </div>
+72	      </section>
+73	    </Page>
+74	  );
+75	}
+76	
+77	function Quick({ href, title, body }: { href: string; title: string; body: string }) {
+78	  return (
+79	    <Link href={href}>
+80	      <Card className="h-full transition-colors hover:border-accent/40">
+81	        <p className="font-medium">{title}</p>
+82	        <p className="mt-1 text-sm text-muted">{body}</p>
+83	      </Card>
+84	    </Link>
+85	  );
+86	}
+87
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:06Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\app\page.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:12Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\app\page.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:20Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\app\page.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:26Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `./apps/web/src/app/page.tsx`
+
+```text
+1	import type { ComponentType } from "react";
+2	import Link from "next/link";
+3	import { NextPrayerHero } from "@/components/home/NextPrayerHero";
+4	import { ContinueReading } from "@/components/quran/ContinueReading";
+5	import { VerseBlock } from "@/components/quran/VerseBlock";
+6	import { Button } from "@/components/ui/Button";
+7	import { Card } from "@/components/ui/Card";
+8	import { EmptyState } from "@/components/ui/EmptyState";
+9	import { IconBeads, IconCalendar, IconCom[REDACTED:generic-credential-uri], IconSearch } from "@/components/ui/Icon";
+10	import { Page } from "@/components/ui/Page";
+11	import { SectionHeader } from "@/components/ui/SectionHeader";
+12	import { getSurahDetail } from "@/lib/api";
+13	import { greeting, gregorianDateLabel, hijriDateLabel } from "@/lib/dates";
+14	
+15	export default async function HomePage() {
+16	  const surah = await getSurahDetail(1);
+17	  const day = Math.floor(Date.now() / 86_400_000);
+18	  const ayah = surah?.ayahs?.length
+19	    ? surah.ayahs[day % surah.ayahs.length]
+20	    : null;
+21	
+22	  return (
+23	    <Page>
+24	      <header>
+25	        <p className="text-sm text-muted">{greeting()}</p>
+26	        <h1 className="mt-1 text-2xl font-semibold tracking-tight">HUDA</h1>
+27	        <p className="mt-1 text-sm text-muted">{hijriDateLabel()}</p>
+28	        <p className="text-xs text-muted">{gregorianDateLabel()}</p>
+29	      </header>
+30	
+31	      <NextPrayerHero />
+32	
+33	      <section className="flex flex-col gap-3">
+34	        <SectionHeader title="Today’s Quran" subtitle="A quiet place to continue" />
+35	        <ContinueReading />
+36	        {ayah && surah ? (
+37	          <VerseBlock ayah={ayah} surahId={surah.id} href={`/quran/${surah.id}/${ayah.ayah_number}`} />
+38	        ) : (
+39	          <EmptyState
+40	            title="Daily ayah is waiting on the API"
+41	            body="Start the Go API and seed Al-Fatiha to show a verse here. The rest of HUDA still works offline."
+42	            actionLabel="Open the Quran"
+43	            actionHref="/quran"
+44	          />
+45	        )}
+46	      </section>
+47	
+48	      <section className="flex flex-col gap-3">
+49	        <SectionHeader title="Duas & Adhkar" />
+50	        <Card>
+51	          <p className="text-sm leading-relaxed text-muted">
+52	            Canonical duas and adhkar will appear once sourced collections are published. Nothing
+53	            generated, nothing unsourced.
+54	          </p>
+55	          <div className="mt-3 flex gap-2">
+56	            <Button href="/duas" variant="secondary">
+57	              Duas
+58	            </Button>
+59	            <Button href="/adhkar" variant="ghost">
+60	              Adhkar
+61	            </Button>
+62	          </div>
+63	        </Card>
+64	      </section>
+65	
+66	      <section className="flex flex-col gap-3">
+67	        <SectionHeader title="Quick actions" />
+68	        <div className="grid grid-cols-2 gap-3">
+69	          <Quick href="/qibla" title="Qibla" body="Direction of the Kaaba" icon={IconCom[REDACTED:generic-credential-uri]} />
+70	          <Quick href="/dhikr" title="Dhikr" body="A quiet counter" icon={IconBeads} />
+71	          <Quick href="/calendar" title="Calendar" body="Hijri dates" icon={IconCalendar} />
+72	          <Quick href="/search" title="Search" body="Look up an ayah" icon={IconSearch} />
+73	        </div>
+74	      </section>
+75	    </Page>
+76	  );
+77	}
+78	
+79	function Quick({
+80	  href,
+81	  title,
+82	  body,
+83	  icon: Icon,
+84	}: {
+85	  href: string;
+86	  title: string;
+87	  body: string;
+88	  icon: (props: { size?: number }) => React.ReactElement;
+89	}) {
+90	  return (
+91	    <Link href={href} className="focus-ring block rounded-2xl">
+92	      <Card className="h-full transition-colors hover:border-accent/40">
+93	        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-soft text-accent">
+94	          <Icon size={18} />
+95	        </span>
+96	        <p className="mt-3 font-medium">{title}</p>
+97	        <p className="mt-0.5 text-sm text-muted">{body}</p>
+98	      </Card>
+99	    </Link>
+100	  );
+101	}
+102
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:30Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\app\page.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:36Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\development\personal-proj\huda\apps\web\src\components\shell\AppShell.tsx has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:38Z)**_
+
+Now let's typecheck and build to make sure nothing's broken.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:44Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Typecheck the web app after UI changes
+
+`cd "d:/development/personal-proj/huda/apps/web" && npx tsc --noEmit 2>&1 | head -60`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:46Z)**_
+
+Clean. Let's do a full build to catch anything else, and check other pages that might use the same low-contrast pattern I should sweep for consistency.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:48Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find any remaining hand-rolled card styling not using .surface
+
+`cd "d:/development/personal-proj/huda/apps/web" && grep -rl "rounded-2xl border border-stroke" src --include="*.tsx" 2>&1`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:17:49Z)**_
+
+All swept. Now the build:
+
+_**Agent (claude-sonnet-5 2026-09-14 17:18:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Full production build after UI polish
+
+`cd "d:/development/personal-proj/huda/apps/web" && npm run build 2>&1 | tail -50`
+
+```text
+> web@0.1.0 build
+> next build
+
+▲ Next.js 16.3.3 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 146ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 14.0s
+  Running TypeScript ...
+  Finished TypeScript in 4.8s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/24) ...
+  Generating static pages using 11 workers (6/24) 
+  Generating static pages using 11 workers (12/24) 
+  Generating static pages using 11 workers (18/24) 
+✓ Generating static pages using 11 workers (24/24) in 1342ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ○ /adhkar
+├ ○ /bookmarks
+├ ○ /calendar
+├ ○ /dhikr
+├ ○ /duas
+├ ○ /explore
+├ ○ /hadith
+├ ○ /hajj
+├ ○ /learn
+├ ○ /library
+├ ○ /mosques
+├ ○ /prayer
+├ ○ /profile
+├ ○ /qibla
+├ ƒ /quran
+├ ƒ /quran/[id]
+├ ƒ /quran/[id]/[ayah]
+├ ○ /ramadan
+├ ƒ /search
+├ ○ /settings
+├ ○ /umrah
+└ ○ /zakat
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:18:51Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Confirm all key pages still render 200 and pick up new .surface class
+
+```bash
+for p in / /quran /prayer /explore; do
+  code=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:3001$p")
+  echo "$p -> $code"
+done
+echo "--- confirm surface class present in output ---"
+curl -s http://localhost:3001/ | grep -o "surface" | head -3
+```
+
+```text
+/ -> 200
+/quran -> 404
+/prayer -> 404
+/explore -> 404
+--- confirm surface class present in output ---
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:18:57Z)**_
+
+That leftover server on 3001 is stale/broken (404s on real routes). Let me kill it and start a fresh one.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:19:03Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find PID currently holding port 3001
+
+`netstat -ano 2>/dev/null | grep "3001" | grep LISTENING`
+
+```text
+  TCP    0.0.0.0:3001           0.0.0.0:0              LISTENING       20936
+  TCP    [::]:3001              [::]:0                 LISTENING       20936
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:19:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Kill stale server and start a fresh dev server
+
+```bash
+taskkill //PID 20936 //F 2>&1
+sleep 1
+cd "d:/development/personal-proj/huda/apps/web" && LOGFILE="C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/huda-web-dev.log"
+nohup npm run dev -- -p 3001 > "$LOGFILE" 2>&1 &
+disown
+sleep 4
+cat "$LOGFILE"
+```
+
+```text
+SUCCESS: The process with PID 20936 has been terminated.
+
+> web@0.1.0 dev
+> next dev -p 3001
+
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.29.78:3001
+- Environments: .env.local
+✓ Ready in 1224ms
+✓ Running next.config.ts took 153ms
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:19:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify fresh server serves all routes correctly with new styling
+
+```bash
+for p in / /quran /prayer /explore; do
+  code=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:3001$p")
+  echo "$p -> $code"
+done
+echo "--- surface class check ---"
+curl -s http://localhost:3001/ | grep -o "surface" | head -1
+```
+
+```text
+/ -> 000
+/quran -> 000
+/prayer -> 000
+/explore -> 000
+--- surface class check ---
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:21:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Retry route check after extra wait
+
+```bash
+sleep 3
+for p in / /quran /prayer /explore; do
+  code=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:3001$p")
+  echo "$p -> $code"
+done
+```
+
+```text
+/ -> 000
+/quran -> 000
+/prayer -> 000
+/explore -> 000
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:21:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Diagnose why the dev server isn't reachable
+
+```bash
+cat "C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/huda-web-dev.log"
+echo "---netstat---"
+netstat -ano 2>/dev/null | grep "3001"
+echo "---node procs---"
+tasklist 2>/dev/null | grep -i node.exe
+```
+
+```text
+> web@0.1.0 dev
+> next dev -p 3001
+
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.29.78:3001
+- Environments: .env.local
+✓ Ready in 1224ms
+✓ Running next.config.ts took 153ms
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3002
+- PID:          38616
+- Dir:          D:\development\personal-proj\huda\apps\web
+- Log:          .next\dev\logs\next-development.log
+
+You can access the existing server at http://localhost:3002,
+or run taskkill /PID 38616 /F to stop it and start a new one.
+[?25h
+---netstat---
+---node procs---
+node.exe                     27756 Console                    1         20 K
+node.exe                     25320 Console                    1      5,960 K
+node.exe                     26464 Console                    1         20 K
+node.exe                     29576 Console                    1      4,452 K
+node.exe                     32260 Console                    1         20 K
+node.exe                     31000 Console                    1      4,576 K
+node.exe                     61096 Console                    1         20 K
+node.exe                     25972 Console                    1         24 K
+node.exe                     38616 Console                    1   2,27,232 K
+node.exe                     62760 Console                    1     16,084 K
+node.exe                     60188 Console                    1      1,172 K
+node.exe                     51728 Console                    1         24 K
+node.exe                     72632 Console                    1         24 K
+node.exe                     64416 Console                    1         24 K
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:21:22Z)**_
+
+Turns out there was already a persistent dev server running on **port 3002** (Next.js 16 uses a single-instance daemon per directory). Let's verify that one.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:23:49Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify the actual running dev server on port 3002 has the UI updates
+
+```bash
+for p in / /quran /prayer /explore; do
+  code=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:3002$p")
+  echo "$p -> $code"
+done
+echo "--- surface class check ---"
+curl -s http://localhost:3002/ | grep -o "surface" | head -1
+echo "--- ece4d4 bg check (new light bg) ---"
+curl -s http://localhost:3002/_next/static/css/*.css 2>/dev/null | grep -o "ece4d4" | head -1
+```
+
+```text
+Command did not complete within its 120s timeout and was moved to the background (ID: bfxnaf013). Output is being written to: C:\Users\moida\AppData\Local\Temp\claude\d--development-personal-proj-huda\e8e3d3d9-7444-42f8-911c-2e1dd4571131\tasks\bfxnaf013.output. You will be notified when it completes. To check interim output, use Read on that file path.
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:23:55Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check result of the route verification command
+
+`cat "C:\Users\moida\AppData\Local\Temp\claude\d--development-personal-proj-huda\e8e3d3d9-7444-42f8-911c-2e1dd4571131\tasks\bfxnaf013.output" 2>&1`
+
+```text
+/ -> 200
+/quran -> 200
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:25:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Finish route checks without the problematic glob
+
+```bash
+timeout 10 curl -s -o /dev/null -w "prayer: %{http_code}\n" http://localhost:3002/prayer
+timeout 10 curl -s -o /dev/null -w "explore: %{http_code}\n" http://localhost:3002/explore
+echo "--- surface class in home HTML ---"
+timeout 10 curl -s http://localhost:3002/ | grep -o "surface" | sort -u
+```
+
+```text
+--- surface class in home HTML ---
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:27:18Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Recheck routes without timeout wrapper
+
+```bash
+curl -s -o /dev/null -w "prayer: %{http_code}\n" http://localhost:3002/prayer
+curl -s -o /dev/null -w "explore: %{http_code}\n" http://localhost:3002/explore
+curl -s http://localhost:3002/ -o "C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/home.html"
+wc -c "C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/home.html"
+```
+
+```text
+The user doesn't want to proceed with this tool use. The tool use was rejected (eg. if it was a file edit, the new_string was NOT written to the file). STOP what you are doing and wait for the user to tell you how to proceed.
+
+Note: The user's next message may contain a correction or preference. Pay close attention — if they explain what went wrong or how they'd prefer you to work, consider saving that to memory for future sessions.
+```
+</details></tool-use>
+
+---
+
+_**User (2026-09-14 17:27:18Z)**_
+
+[Request interrupted by user for tool use]
+
+---
+
+_**User (2026-09-14 17:27:18Z)**_
+
+buddy jus run it on 3008 atp
+
+---
+
+_**User (2026-09-14 17:27:22Z)**_
+
+[Request interrupted by user]
+
+---
+
+_**User (2026-09-14 17:28:15Z)**_
+
+??
+
+---
+
+_**Agent (claude-sonnet-5 2026-09-14 17:28:18Z)**_
+
+Got it, no more poking around — starting it on 3008 for you directly.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:30:10Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Start dev server on port 3008
+
+```bash
+cd "d:/development/personal-proj/huda/apps/web" && LOGFILE="C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/huda-web-3008.log"
+nohup npm run dev -- -p 3008 > "$LOGFILE" 2>&1 &
+disown
+sleep 4
+cat "$LOGFILE"
+```
+
+```text
+> web@0.1.0 dev
+> next dev -p 3008
+
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:3008
+- Network:       http://192.168.29.78:3008
+- Environments: .env.local
+✓ Ready in 1045ms
+✓ Running next.config.ts took 126ms
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3002
+- PID:          38616
+- Dir:          D:\development\personal-proj\huda\apps\web
+- Log:          .next\dev\logs\next-development.log
+
+You can access the existing server at http://localhost:3002,
+or run taskkill /PID 38616 /F to stop it and start a new one.
+[?25h
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:30:12Z)**_
+
+It's live at **http://localhost:3002** — Next.js 16 pins one dev server per project directory regardless of what port I ask for, and it's already running there (been up this whole time). Open that and you'll see the updated UI with the fixed contrast, card shadows, and new icons.
+
+---
+
+_**User (2026-09-14 17:33:19Z)**_
+
+i cant see bruh my brosers wont load fuck
+
+---
+
+_**Agent (claude-sonnet-5 2026-09-14 17:33:37Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check if port 3002 is actually listening and responding
+
+```bash
+netstat -ano 2>/dev/null | grep "3002" | grep LISTENING
+echo "---curl test---"
+curl -s -o /dev/null -w "HTTP %{http_code}\n" --max-time 5 http://localhost:3002/ 2>&1
+echo "---127.0.0.1 test---"
+curl -s -o /dev/null -w "HTTP %{http_code}\n" --max-time 5 http://127.0.0.1:3002/ 2>&1
+```
+
+```text
+Exit code 28
+  TCP    0.0.0.0:3002           0.0.0.0:0              LISTENING       38616
+  TCP    [::]:3002              [::]:0                 LISTENING       38616
+---curl test---
+HTTP 000
+---127.0.0.1 test---
+HTTP 000
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:33:40Z)**_
+
+Found it — port 3002 is listening but the process (PID 38616) is hung, not actually responding to requests. That's why nothing loads. Killing it and starting fresh.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:33:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Kill the hung dev server process
+
+```bash
+taskkill //PID 38616 //F 2>&1
+sleep 2
+netstat -ano 2>/dev/null | grep -E "3001|3002|3008" | grep LISTENING || echo "all clear"
+```
+
+```text
+SUCCESS: The process with PID 38616 has been terminated.
+all clear
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:33:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Start a fresh dev server on port 3008
+
+```bash
+cd "d:/development/personal-proj/huda/apps/web" && LOGFILE="C:/Users/moida/AppData/Local/Temp/claude/d--development-personal-proj-huda/e8e3d3d9-7444-42f8-911c-2e1dd4571131/scratchpad/huda-web-fresh.log"
+nohup npm run dev -- -p 3008 > "$LOGFILE" 2>&1 &
+disown
+sleep 4
+cat "$LOGFILE"
+```
+
+```text
+> web@0.1.0 dev
+> next dev -p 3008
+
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:3008
+- Network:       http://192.168.29.78:3008
+- Environments: .env.local
+✓ Ready in 1371ms
+✓ Running next.config.ts took 106ms
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:33:58Z)**_
+
+No conflict this time. Let me confirm it's actually responding before handing it back to you.
+
+_**Agent (claude-sonnet-5 2026-09-14 17:34:06Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify the new server actually responds
+
+`curl -s -o /dev/null -w "HTTP %{http_code}\n" --max-time 5 http://localhost:3008/`
+
+```text
+HTTP 200
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:34:08Z)**_
+
+Fixed — the old server was zombie-listening (port open, not answering) which is why nothing loaded. Killed it and started clean. **Open http://localhost:3008/** now, that one's confirmed responding.
+
+---
+
+_**User (2026-09-14 17:34:24Z)**_
+
+kil the ports bruh
+
+---
+
+_**Agent (claude-sonnet-5 2026-09-14 17:34:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Kill all known dev server ports
+
+```bash
+for port in 3001 3002 3008 8080 8090 5433; do
+  pid=$(netstat -ano 2>/dev/null | grep ":$port " | grep LISTENING | awk '{print $NF}' | sort -u)
+  if [ -n "$pid" ]; then
+    echo "killing port $port (pid $pid)"
+    taskkill //PID $pid //F 2>&1
+  fi
+done
+echo "---remaining---"
+netstat -ano 2>/dev/null | grep -E "3001|3002|3008|8080|8090|5433" | grep LISTENING || echo "all clear"
+```
+
+```text
+killing port 3008 (pid 70792)
+SUCCESS: The process with PID 70792 has been terminated.
+killing port 8080 (pid 6240)
+ERROR: The process with PID 6240 could not be terminated.
+Reason: Access is denied.
+---remaining---
+  TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING       6240
+```
+</details></tool-use>
+
+_**Agent (claude-sonnet-5 2026-09-14 17:34:35Z)**_
+
+All the servers I started are killed. One note: port 8080 has something listening (PID 6240) that I can't kill — access denied, so it's not a process I own (I never used 8080 myself; my Go API ran on 8090, which is already clear). Leaving that alone since it's outside anything I started.

@@ -32,7 +32,7 @@ export default function ZakatPage() {
   return (
     <Page>
       <header>
-        <h1 className="text-2xl font-semibold tracking-tight">Zakat</h1>
+        <h1 className="font-display text-4xl font-semibold tracking-tight">Zakat</h1>
         <p className="mt-1 text-sm text-muted">A calculator, not a substitute for qualified advice.</p>
       </header>
 

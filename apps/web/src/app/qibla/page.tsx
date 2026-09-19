@@ -31,7 +31,7 @@ export default function QiblaPage() {
   return (
     <Page>
       <header>
-        <h1 className="text-2xl font-semibold tracking-tight">Qibla</h1>
+        <h1 className="font-display text-4xl font-semibold tracking-tight">Qibla</h1>
         <p className="mt-1 text-sm text-muted">Calculated on this device. No network required.</p>
       </header>
 
@@ -43,11 +43,11 @@ export default function QiblaPage() {
       {bearing != null && (
         <>
           <div className="flex flex-col items-center gap-6 py-4">
-            <div className="relative flex h-64 w-64 items-center justify-center rounded-full border border-stroke bg-card">
-              <div className="absolute inset-6 rounded-full border border-dashed border-stroke" />
-              <span className="absolute top-3 text-xs text-muted">N</span>
+            <div className="relative flex h-64 w-64 items-center justify-center rounded-full border border-gold/35 bg-card">
+              <div className="absolute inset-6 rounded-full border border-dashed border-gold/20" />
+              <span className="absolute top-3 text-xs text-gold">N</span>
               <div
-                className="h-28 w-1 rounded-full bg-accent origin-bottom"
+                className="h-28 w-1 origin-bottom rounded-full bg-gold"
                 style={{ transform: `rotate(${needle}deg)` }}
               />
             </div>

@@ -44,7 +44,7 @@ export default function PrayerPage() {
   return (
     <Page>
       <header>
-        <h1 className="text-2xl font-semibold tracking-tight">Prayer times</h1>
+        <h1 className="font-display text-4xl font-semibold tracking-tight">Prayer times</h1>
         <p className="mt-1 text-sm text-muted">{now ? gregorianDateLabel(now) : "…"}</p>
       </header>
 

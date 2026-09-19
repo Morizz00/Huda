@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SplitText } from "@/components/bits/SplitText";
 import { SurahRow } from "@/components/quran/SurahRow";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { IconSearch } from "@/components/ui/Icon";
@@ -12,14 +13,18 @@ export default async function QuranPage() {
     <Page>
       <header className="flex items-end justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">Quran</h1>
+          <SplitText
+            as="h1"
+            text="Quran"
+            className="font-display text-4xl font-semibold tracking-tight"
+          />
           <p className="mt-1 text-sm text-muted">
             {surahs.length ? `${surahs.length} surah${surahs.length === 1 ? "" : "s"}` : "Corpus not loaded yet"}
           </p>
         </div>
         <Link
           href="/search"
-          className="focus-ring flex items-center gap-2 rounded-xl bg-soft px-3 py-2 text-sm text-muted transition-colors hover:text-foreground"
+          className="focus-ring flex min-h-11 items-center gap-2 rounded-full border border-gold/30 bg-soft px-4 py-2 text-sm text-muted transition-colors hover:text-foreground"
         >
           <IconSearch size={16} />
           Search

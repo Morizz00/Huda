@@ -1,61 +1,70 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 :root {
-  --background: #ece4d4;
-  --foreground: #1c1917;
-  --muted: #75695a;
-  --card: #fffdfa;
-  --stroke: #d9c9ae;
-  --accent: #9a6b3f;
-  --accent-fg: #fffdfa;
-  --hero: #2a231c;
-  --hero-fg: #f4efe6;
-  --nav: #fffdfa;
-  --soft: #e3d6bf;
+  --background: #f3ead7;
+  --foreground: #14201c;
+  --muted: #5c6b63;
+  --card: #fff8ea;
+  --stroke: #d7c4a0;
+  --accent: #146857;
+  --accent-fg: #f7f1e4;
+  --gold: #b0893e;
+  --hero: #0b1f1c;
+  --hero-fg: #f4ead6;
+  --nav: #fff8ea;
+  --soft: #e8d7b4;
+  --mist: #0d3a32;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #14110e;
-    --foreground: #f1e9dd;
-    --muted: #a89b8c;
-    --card: #1c1814;
-    --stroke: #322b24;
-    --accent: #c4894f;
-    --accent-fg: #161310;
-    --hero: #1a1612;
-    --hero-fg: #f1e9dd;
-    --nav: #181410;
-    --soft: #241f1a;
+    --background: #071210;
+    --foreground: #efe6d4;
+    --muted: #9aab9f;
+    --card: #0f1f1b;
+    --stroke: #1e3a33;
+    --accent: #3d9a82;
+    --accent-fg: #071210;
+    --gold: #c9a45c;
+    --hero: #061614;
+    --hero-fg: #f4ead6;
+    --nav: #0b1916;
+    --soft: #16302b;
+    --mist: #0a2a24;
   }
 }
 
 html[data-theme="light"] {
-  --background: #ece4d4;
-  --foreground: #1c1917;
-  --muted: #75695a;
-  --card: #fffdfa;
-  --stroke: #d9c9ae;
-  --accent: #9a6b3f;
-  --accent-fg: #fffdfa;
-  --hero: #2a231c;
-  --hero-fg: #f4efe6;
-  --nav: #fffdfa;
-  --soft: #e3d6bf;
+  --background: #f3ead7;
+  --foreground: #14201c;
+  --muted: #5c6b63;
+  --card: #fff8ea;
+  --stroke: #d7c4a0;
+  --accent: #146857;
+  --accent-fg: #f7f1e4;
+  --gold: #b0893e;
+  --hero: #0b1f1c;
+  --hero-fg: #f4ead6;
+  --nav: #fff8ea;
+  --soft: #e8d7b4;
+  --mist: #0d3a32;
 }
 
 html[data-theme="dark"] {
-  --background: #14110e;
-  --foreground: #f1e9dd;
-  --muted: #a89b8c;
-  --card: #1c1814;
-  --stroke: #322b24;
-  --accent: #c4894f;
-  --accent-fg: #161310;
-  --hero: #1a1612;
-  --hero-fg: #f1e9dd;
-  --nav: #181410;
-  --soft: #241f1a;
+  --background: #071210;
+  --foreground: #efe6d4;
+  --muted: #9aab9f;
+  --card: #0f1f1b;
+  --stroke: #1e3a33;
+  --accent: #3d9a82;
+  --accent-fg: #071210;
+  --gold: #c9a45c;
+  --hero: #061614;
+  --hero-fg: #f4ead6;
+  --nav: #0b1916;
+  --soft: #16302b;
+  --mist: #0a2a24;
 }
 
 @theme inline {
@@ -66,55 +75,59 @@ html[data-theme="dark"] {
   --color-stroke: var(--stroke);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
+  --color-gold: var(--gold);
   --color-hero: var(--hero);
   --color-hero-fg: var(--hero-fg);
   --color-nav: var(--nav);
   --color-soft: var(--soft);
-  --font-sans: var(--font-geist-sans);
+  --color-mist: var(--mist);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-cormorant);
   --font-arabic: var(--font-naskh);
+  --font-amiri: var(--font-amiri);
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--background);
+  color: var(--foreground);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), "Times New Roman", serif;
+  letter-spacing: -0.02em;
 }
 
 .font-arabic {
   font-family: var(--font-naskh), "Noto Naskh Arabic", serif;
 }
 
+.font-amiri {
+  font-family: var(--font-amiri), Amiri, serif;
+}
+
 ::selection {
-  background: color-mix(in srgb, var(--accent) 35%, transparent);
+  background: color-mix(in srgb, var(--gold) 40%, transparent);
+}
+
+.geom-veil {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23b0893e' stroke-opacity='0.16' stroke-width='0.7'%3E%3Cpath d='M36 4 L42 24 L62 24 L46 36 L52 56 L36 44 L20 56 L26 36 L10 24 L30 24 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 72px 72px;
 }
 
 .surface {
-  border-radius: 1rem;
-  border: 1px solid var(--stroke);
-  background: var(--card);
+  border-radius: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--stroke));
+  background: color-mix(in srgb, var(--card) 92%, transparent);
   box-shadow:
-    0 1px 2px rgba(20, 14, 5, 0.04),
-    0 12px 28px -18px rgba(20, 14, 5, 0.22);
-}
-
-@media (prefers-color-scheme: dark) {
-  .surface {
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.2),
-      0 12px 28px -18px rgba(0, 0, 0, 0.5);
-  }
-}
-
-html[data-theme="dark"] .surface {
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.2),
-    0 12px 28px -18px rgba(0, 0, 0, 0.5);
-}
-
-html[data-theme="light"] .surface {
-  box-shadow:
-    0 1px 2px rgba(20, 14, 5, 0.04),
-    0 12px 28px -18px rgba(20, 14, 5, 0.22);
+    inset 0 1px 0 color-mix(in srgb, var(--gold) 22%, transparent),
+    0 18px 40px -28px rgba(7, 18, 16, 0.55);
 }
 
 .focus-ring {
@@ -122,6 +135,22 @@ html[data-theme="light"] .surface {
 }
 
 .focus-ring:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.ornament-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

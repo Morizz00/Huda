@@ -15,7 +15,7 @@ export default async function SearchPage({
   return (
     <Page width="wide">
       <header>
-        <h1 className="text-2xl font-semibold tracking-tight">Search</h1>
+        <h1 className="font-display text-4xl font-semibold tracking-tight">Search</h1>
         <p className="mt-1 text-sm text-muted">Arabic and transliteration in the seeded corpus.</p>
       </header>
 
@@ -24,11 +24,11 @@ export default async function SearchPage({
           name="q"
           defaultValue={query}
           placeholder="Search ayahs…"
-          className="w-full rounded-xl border border-stroke bg-card px-4 py-2.5 text-sm"
+          className="min-h-11 w-full rounded-full border border-gold/30 bg-card px-4 py-2.5 text-sm"
         />
         <button
           type="submit"
-          className="rounded-xl bg-accent px-4 py-2.5 text-sm font-medium text-accent-fg"
+          className="min-h-11 rounded-full bg-accent px-4 text-sm font-medium text-accent-fg"
         >
           Search
         </button>

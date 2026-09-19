@@ -44,10 +44,10 @@ export default async function SurahPage({
         <Link href="/quran" className="inline-flex items-center gap-1 self-start text-sm text-muted">
           <IconArrowLeft size={16} /> All surahs
         </Link>
-        <p dir="rtl" lang="ar" className="mt-4 font-arabic text-4xl">
+        <p dir="rtl" lang="ar" className="mt-4 font-amiri text-5xl text-gold">
           {surah.name_arabic}
         </p>
-        <h1 className="text-xl font-semibold">{surah.name_transliteration}</h1>
+        <h1 className="font-display text-3xl">{surah.name_transliteration}</h1>
         <p className="text-sm text-muted">
           {surah.name_translation} · {surah.revelation_place} · {surah.ayah_count} ayahs
         </p>

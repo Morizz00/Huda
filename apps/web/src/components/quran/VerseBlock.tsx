@@ -13,31 +13,31 @@ export function VerseBlock({
   const transliteration = optionalText(ayah.text_transliteration);
   const inner = (
     <>
-      <div className="mb-3 flex items-center justify-between text-xs text-muted">
-        <span className="tabular-nums">
+      <div className="mb-4 flex items-center justify-between text-xs text-muted">
+        <span className="tabular-nums tracking-wide">
           {surahId}:{ayah.ayah_number}
         </span>
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-soft text-[11px] text-accent">
+        <span className="flex h-8 w-8 items-center justify-center rounded-full border border-gold/40 text-[11px] text-gold">
           {ayah.ayah_number}
         </span>
       </div>
       <p
         dir="rtl"
         lang="ar"
-        className="font-arabic text-right text-[1.7rem] leading-[2.4] text-foreground"
+        className="font-amiri text-right text-[1.85rem] leading-[2.55] text-foreground md:text-[2.05rem] md:leading-[2.7]"
       >
         {ayah.text_arabic}
       </p>
       {transliteration && (
-        <p className="mt-3 text-sm italic leading-relaxed text-muted">{transliteration}</p>
+        <p className="mt-4 text-sm italic leading-relaxed text-muted">{transliteration}</p>
       )}
     </>
   );
 
-  const cls = "surface focus-ring block p-4";
+  const cls = "surface focus-ring block p-5";
   if (href) {
     return (
-      <Link href={href} className={`${cls} transition-colors hover:border-accent/40`}>
+      <Link href={href} className={`${cls} transition-colors hover:border-gold/50`}>
         {inner}
       </Link>
     );

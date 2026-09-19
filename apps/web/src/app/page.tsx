@@ -1,6 +1,9 @@
 import type { ComponentType } from "react";
 import Link from "next/link";
+import { SplitText } from "@/components/bits/SplitText";
+import { SpotlightCard } from "@/components/bits/SpotlightCard";
 import { NextPrayerHero } from "@/components/home/NextPrayerHero";
+import { Reveal } from "@/components/motion/Reveal";
 import { ContinueReading } from "@/components/quran/ContinueReading";
 import { VerseBlock } from "@/components/quran/VerseBlock";
 import { Button } from "@/components/ui/Button";
@@ -22,28 +25,40 @@ export default async function HomePage() {
   return (
     <Page>
       <header>
-        <p className="text-sm text-muted">{greeting()}</p>
-        <h1 className="mt-1 text-2xl font-semibold tracking-tight">HUDA</h1>
-        <p className="mt-1 text-sm text-muted">{hijriDateLabel()}</p>
+        <p className="text-xs uppercase tracking-[0.28em] text-gold">{greeting()}</p>
+        <SplitText
+          as="h1"
+          text="HUDA"
+          className="mt-2 font-display text-5xl font-semibold tracking-tight md:text-6xl"
+        />
+        <p dir="rtl" lang="ar" className="mt-1 font-amiri text-3xl text-gold">
+          هُدًى
+        </p>
+        <div className="ornament-line my-4" />
+        <p className="text-sm text-muted">{hijriDateLabel()}</p>
         <p className="text-xs text-muted">{gregorianDateLabel()}</p>
       </header>
 
-      <NextPrayerHero />
+      <Reveal>
+        <NextPrayerHero />
+      </Reveal>
 
-      <section className="flex flex-col gap-3">
-        <SectionHeader title="Today’s Quran" subtitle="A quiet place to continue" />
-        <ContinueReading />
-        {ayah && surah ? (
-          <VerseBlock ayah={ayah} surahId={surah.id} href={`/quran/${surah.id}/${ayah.ayah_number}`} />
-        ) : (
-          <EmptyState
-            title="Daily ayah is waiting on the API"
-            body="Start the Go API and seed Al-Fatiha to show a verse here. The rest of HUDA still works offline."
-            actionLabel="Open the Quran"
-            actionHref="/quran"
-          />
-        )}
-      </section>
+      <Reveal delay={0.08}>
+        <section className="flex flex-col gap-3">
+          <SectionHeader title="Today’s Quran" subtitle="A quiet place to continue" />
+          <ContinueReading />
+          {ayah && surah ? (
+            <VerseBlock ayah={ayah} surahId={surah.id} href={`/quran/${surah.id}/${ayah.ayah_number}`} />
+          ) : (
+            <EmptyState
+              title="Daily ayah is waiting on the API"
+              body="Start the Go API and seed Al-Fatiha to show a verse here. The rest of HUDA still works offline."
+              actionLabel="Open the Quran"
+              actionHref="/quran"
+            />
+          )}
+        </section>
+      </Reveal>
 
       <section className="flex flex-col gap-3">
         <SectionHeader title="Duas & Adhkar" />
@@ -52,7 +67,7 @@ export default async function HomePage() {
             Canonical duas and adhkar will appear once sourced collections are published. Nothing
             generated, nothing unsourced.
           </p>
-          <div className="mt-3 flex gap-2">
+          <div className="mt-4 flex gap-2">
             <Button href="/duas" variant="secondary">
               Duas
             </Button>
@@ -88,14 +103,14 @@ function Quick({
   icon: ComponentType<{ size?: number }>;
 }) {
   return (
-    <Link href={href} className="focus-ring block rounded-2xl">
-      <Card className="h-full transition-colors hover:border-accent/40">
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-soft text-accent">
+    <Link href={href} className="focus-ring block rounded-[1.25rem]">
+      <SpotlightCard className="h-full">
+        <span className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/35 text-gold">
           <Icon size={18} />
         </span>
-        <p className="mt-3 font-medium">{title}</p>
+        <p className="mt-3 font-display text-xl">{title}</p>
         <p className="mt-0.5 text-sm text-muted">{body}</p>
-      </Card>
+      </SpotlightCard>
     </Link>
   );
 }

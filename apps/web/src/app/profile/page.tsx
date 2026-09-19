@@ -6,12 +6,12 @@ export default function ProfilePage() {
   return (
     <Page>
       <header>
-        <h1 className="text-2xl font-semibold tracking-tight">Profile</h1>
+        <h1 className="font-display text-4xl font-semibold tracking-tight">Profile</h1>
         <p className="mt-1 text-sm text-muted">Anonymous by default. Sync is optional and not on yet.</p>
       </header>
 
       <Card>
-        <p dir="rtl" lang="ar" className="font-arabic text-3xl">
+        <p dir="rtl" lang="ar" className="font-amiri text-4xl text-gold">
           هُدًى
         </p>
         <p className="mt-2 font-medium">Local guest</p>

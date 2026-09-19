@@ -1,18 +1,31 @@
 import type { Metadata } from "next";
-import { Geist, Noto_Naskh_Arabic } from "next/font/google";
+import { Amiri, Cormorant_Garamond, Noto_Naskh_Arabic, Outfit } from "next/font/google";
 import { AppShell } from "@/components/shell/AppShell";
 import { ThemeScript } from "@/components/shell/ThemeScript";
+import { LenisProvider } from "@/components/motion/LenisProvider";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
 const naskh = Noto_Naskh_Arabic({
   variable: "--font-naskh",
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
+});
+
+const amiri = Amiri({
+  variable: "--font-amiri",
+  subsets: ["arabic", "latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -23,10 +36,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${naskh.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${outfit.variable} ${cormorant.variable} ${naskh.variable} ${amiri.variable} h-full antialiased`}
+    >
       <body className="min-h-full bg-background font-sans text-foreground">
         <ThemeScript />
-        <AppShell>{children}</AppShell>
+        <LenisProvider>
+          <AppShell>{children}</AppShell>
+        </LenisProvider>
       </body>
     </html>
   );

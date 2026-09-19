@@ -13,8 +13,11 @@ export function PlaceholderPage({
   return (
     <Page>
       <header>
-        {kicker && <p className="text-sm text-muted">{kicker}</p>}
-        <h1 className="mt-1 text-2xl font-semibold tracking-tight">{title}</h1>
+        {kicker && (
+          <p className="text-xs uppercase tracking-[0.22em] text-gold">{kicker}</p>
+        )}
+        <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight">{title}</h1>
+        <div className="ornament-line mt-4" />
       </header>
       <EmptyState title="Sourced content is not published yet" body={body} />
     </Page>

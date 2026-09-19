@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Page } from "@/components/ui/Page";
@@ -9,6 +10,7 @@ import { STORAGE_KEYS } from "@/lib/storage";
 export default function DhikrPage() {
   const [count, setCount] = useState(0);
   const [target, setTarget] = useState(33);
+  const bead = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const c = Number(window.localStorage.getItem(STORAGE_KEYS.dhikrCount) ?? 0);
@@ -25,26 +27,34 @@ export default function DhikrPage() {
     window.localStorage.setItem(STORAGE_KEYS.dhikrTarget, String(target));
   }, [target]);
 
+  function tap() {
+    setCount((n) => n + 1);
+    if (!bead.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    gsap.fromTo(bead.current, { scale: 0.94 }, { scale: 1, duration: 0.28, ease: "power2.out" });
+  }
+
   const progress = Math.min(1, count / target);
 
   return (
     <Page>
       <header>
-        <h1 className="text-2xl font-semibold tracking-tight">Dhikr</h1>
+        <h1 className="font-display text-4xl font-semibold tracking-tight">Dhikr</h1>
         <p className="mt-1 text-sm text-muted">Stays on this device. No account required.</p>
       </header>
 
       <button
+        ref={bead}
         type="button"
-        onClick={() => setCount((n) => n + 1)}
-        className="flex aspect-square w-full flex-col items-center justify-center rounded-full border border-stroke bg-card"
+        onClick={tap}
+        className="flex aspect-square w-full max-h-[min(70vw,22rem)] flex-col items-center justify-center self-center rounded-full border border-gold/40 bg-card"
       >
-        <span className="text-6xl font-semibold tabular-nums">{count}</span>
+        <span className="font-display text-7xl tabular-nums text-gold">{count}</span>
         <span className="mt-2 text-sm text-muted">of {target}</span>
       </button>
 
       <div className="h-1.5 overflow-hidden rounded-full bg-soft">
-        <div className="h-full bg-accent" style={{ width: `${progress * 100}%` }} />
+        <div className="h-full bg-gold" style={{ width: `${progress * 100}%` }} />
       </div>
 
       <div className="flex gap-2">

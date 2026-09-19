@@ -15,8 +15,8 @@ export function EmptyState({
   children?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-start gap-3 rounded-2xl border border-dashed border-stroke bg-card px-5 py-8">
-      <p className="text-sm font-medium">{title}</p>
+    <div className="flex flex-col items-start gap-3 rounded-[1.25rem] border border-dashed border-gold/35 bg-card/80 px-5 py-8">
+      <p className="font-display text-xl">{title}</p>
       <p className="max-w-md text-sm leading-relaxed text-muted">{body}</p>
       {actionHref && actionLabel && (
         <Button href={actionHref} variant="secondary">

@@ -19,7 +19,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export function Button({ variant = "primary", href, className = "", children, ...props }: Props) {
-  const cls = `focus-ring inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-medium transition-opacity ${variants[variant]} ${className}`;
+  const cls = `focus-ring inline-flex min-h-11 items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium tracking-wide transition-opacity ${variants[variant]} ${className}`;
   if (href) {
     return (
       <Link href={href} className={cls}>

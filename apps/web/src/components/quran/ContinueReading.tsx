@@ -22,9 +22,9 @@ export function ContinueReading({ fallbackHref = "/quran/1" }: { fallbackHref?: 
 
   return (
     <Link href={href}>
-      <Card className="transition-colors hover:border-accent/40">
-        <p className="text-xs uppercase tracking-wide text-muted">Continue reading</p>
-        <p className="mt-1 text-lg font-semibold">{label}</p>
+      <Card className="transition-colors hover:border-gold/50">
+        <p className="text-xs uppercase tracking-[0.2em] text-gold">Continue reading</p>
+        <p className="mt-1 font-display text-2xl">{label}</p>
         <p className="mt-1 text-sm text-muted">Pick up where you left the mushaf.</p>
       </Card>
     </Link>

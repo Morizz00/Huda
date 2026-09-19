@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
 import { formatCountdown } from "@/lib/dates";
 import {
@@ -16,6 +16,16 @@ import { useGeolocation } from "@/lib/useGeolocation";
 function prayerLabel(name: string | null) {
   if (!name) return "Isha complete";
   return name.charAt(0).toUpperCase() + name.slice(1);
+}
+
+function Shell({ children }: { children: ReactNode }) {
+  return (
+    <div className="relative overflow-hidden rounded-[1.6rem] border border-gold/25 bg-hero px-5 py-7 text-hero-fg">
+      <div className="pointer-events-none absolute -right-8 -top-10 h-36 w-36 rounded-full border border-gold/20" />
+      <div className="pointer-events-none absolute -right-2 -top-4 h-24 w-24 rounded-full border border-gold/15" />
+      {children}
+    </div>
+  );
 }
 
 export function NextPrayerHero() {
@@ -40,57 +50,57 @@ export function NextPrayerHero() {
 
   if (status === "locating") {
     return (
-      <div className="rounded-2xl bg-hero px-5 py-6 text-hero-fg">
-        <p className="text-sm text-hero-fg/70">Finding your location…</p>
-        <p className="mt-3 text-3xl font-semibold tracking-tight">Next prayer</p>
-      </div>
+      <Shell>
+        <p className="text-xs uppercase tracking-[0.22em] text-gold">Finding location</p>
+        <p className="mt-3 font-display text-4xl">Next prayer</p>
+      </Shell>
     );
   }
 
   if (!coords) {
     return (
-      <div className="rounded-2xl bg-hero px-5 py-6 text-hero-fg">
-        <p className="text-sm text-hero-fg/70">Prayer times</p>
-        <p className="mt-2 text-2xl font-semibold tracking-tight">Set your location</p>
+      <Shell>
+        <p className="text-xs uppercase tracking-[0.22em] text-gold">Prayer times</p>
+        <p className="mt-2 font-display text-4xl">Set your location</p>
         <p className="mt-2 text-sm text-hero-fg/70">
           Allow location or enter coordinates on the prayer page.
         </p>
-        <div className="mt-4">
+        <div className="mt-5">
           <Button href="/prayer" variant="hero">
             Open prayer times
           </Button>
         </div>
-      </div>
+      </Shell>
     );
   }
 
   if (!result?.next.name) {
     return (
-      <div className="rounded-2xl bg-hero px-5 py-6 text-hero-fg">
-        <p className="text-sm text-hero-fg/70">Tonight</p>
-        <p className="mt-1 text-3xl font-semibold tracking-tight">Isha has passed</p>
+      <Shell>
+        <p className="text-xs uppercase tracking-[0.22em] text-gold">Tonight</p>
+        <p className="mt-2 font-display text-4xl">Isha has passed</p>
         <p className="mt-2 text-sm text-hero-fg/70">Fajr is next after midnight.</p>
-        <div className="mt-4">
+        <div className="mt-5">
           <Button href="/prayer" variant="hero">
             Today&apos;s times
           </Button>
         </div>
-      </div>
+      </Shell>
     );
   }
 
   return (
-    <div className="rounded-2xl bg-hero px-5 py-6 text-hero-fg">
-      <p className="text-sm text-hero-fg/70">Next prayer</p>
-      <p className="mt-1 text-3xl font-semibold tracking-tight">{prayerLabel(result.next.name)}</p>
-      <p className="mt-3 font-mono text-2xl tabular-nums tracking-wide">
+    <Shell>
+      <p className="text-xs uppercase tracking-[0.22em] text-gold">Next prayer</p>
+      <p className="mt-2 font-display text-5xl">{prayerLabel(result.next.name)}</p>
+      <p className="mt-4 font-mono text-3xl tabular-nums tracking-wide text-gold">
         {formatCountdown(result.remaining)}
       </p>
-      <div className="mt-5">
+      <div className="mt-6">
         <Button href="/prayer" variant="hero">
           Today&apos;s times
         </Button>
       </div>
-    </div>
+    </Shell>
   );
 }

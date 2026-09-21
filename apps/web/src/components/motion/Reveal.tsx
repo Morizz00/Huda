@@ -1,31 +1,35 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { useRef, type ReactNode } from "react";
-
-gsap.registerPlugin(useGSAP);
+import { gsap, prefersReducedMotion, useGSAP } from "@/lib/gsap";
 
 export function Reveal({
   children,
   className = "",
   delay = 0,
+  y = 28,
+  x = 0,
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  y?: number;
+  x?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      if (!ref.current) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      gsap.fromTo(
-        ref.current,
-        { y: 22, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.75, delay, ease: "power3.out" },
-      );
+      if (!ref.current || prefersReducedMotion()) return;
+      gsap.from(ref.current, {
+        y,
+        x,
+        opacity: 0,
+        duration: 0.9,
+        delay,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ref.current, start: "top 90%", once: true },
+      });
     },
     { scope: ref },
   );

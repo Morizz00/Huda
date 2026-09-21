@@ -1,70 +1,85 @@
 @import "tailwindcss";
 @import "lenis/dist/lenis.css";
 
+/* ------------------------------------------------------------------ */
+/* Tokens — emerald / gold / parchment, with a sapphire night accent   */
+/* ------------------------------------------------------------------ */
 :root {
-  --background: #f3ead7;
-  --foreground: #14201c;
-  --muted: #5c6b63;
-  --card: #fff8ea;
-  --stroke: #d7c4a0;
-  --accent: #146857;
+  --background: #f6edd8;
+  --foreground: #10211b;
+  --muted: #5a6a61;
+  --card: #fffaf0;
+  --stroke: #dcc79c;
+  --accent: #0f7a63;
   --accent-fg: #f7f1e4;
-  --gold: #b0893e;
-  --hero: #0b1f1c;
-  --hero-fg: #f4ead6;
-  --nav: #fff8ea;
-  --soft: #e8d7b4;
-  --mist: #0d3a32;
+  --gold: #b58a2f;
+  --hero: #0a2621;
+  --hero-fg: #f6ecd6;
+  --nav: #fffaf0;
+  --soft: #ecdcb8;
+  --mist: #0f4a3f;
+  --aurora-a: #2bb896;
+  --aurora-b: #e0b85a;
+  --aurora-c: #4d7be0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #071210;
-    --foreground: #efe6d4;
-    --muted: #9aab9f;
-    --card: #0f1f1b;
-    --stroke: #1e3a33;
-    --accent: #3d9a82;
-    --accent-fg: #071210;
-    --gold: #c9a45c;
-    --hero: #061614;
-    --hero-fg: #f4ead6;
-    --nav: #0b1916;
-    --soft: #16302b;
+    --background: #06100e;
+    --foreground: #f0e7d3;
+    --muted: #97ab9f;
+    --card: #0d1c19;
+    --stroke: #1c3a33;
+    --accent: #35c29b;
+    --accent-fg: #06100e;
+    --gold: #d8b168;
+    --hero: #051412;
+    --hero-fg: #f6ecd6;
+    --nav: #0a1714;
+    --soft: #14302a;
     --mist: #0a2a24;
+    --aurora-a: #35c29b;
+    --aurora-b: #d8b168;
+    --aurora-c: #4d7be0;
   }
 }
 
 html[data-theme="light"] {
-  --background: #f3ead7;
-  --foreground: #14201c;
-  --muted: #5c6b63;
-  --card: #fff8ea;
-  --stroke: #d7c4a0;
-  --accent: #146857;
+  --background: #f6edd8;
+  --foreground: #10211b;
+  --muted: #5a6a61;
+  --card: #fffaf0;
+  --stroke: #dcc79c;
+  --accent: #0f7a63;
   --accent-fg: #f7f1e4;
-  --gold: #b0893e;
-  --hero: #0b1f1c;
-  --hero-fg: #f4ead6;
-  --nav: #fff8ea;
-  --soft: #e8d7b4;
-  --mist: #0d3a32;
+  --gold: #b58a2f;
+  --hero: #0a2621;
+  --hero-fg: #f6ecd6;
+  --nav: #fffaf0;
+  --soft: #ecdcb8;
+  --mist: #0f4a3f;
+  --aurora-a: #2bb896;
+  --aurora-b: #e0b85a;
+  --aurora-c: #4d7be0;
 }
 
 html[data-theme="dark"] {
-  --background: #071210;
-  --foreground: #efe6d4;
-  --muted: #9aab9f;
-  --card: #0f1f1b;
-  --stroke: #1e3a33;
-  --accent: #3d9a82;
-  --accent-fg: #071210;
-  --gold: #c9a45c;
-  --hero: #061614;
-  --hero-fg: #f4ead6;
-  --nav: #0b1916;
-  --soft: #16302b;
+  --background: #06100e;
+  --foreground: #f0e7d3;
+  --muted: #97ab9f;
+  --card: #0d1c19;
+  --stroke: #1c3a33;
+  --accent: #35c29b;
+  --accent-fg: #06100e;
+  --gold: #d8b168;
+  --hero: #051412;
+  --hero-fg: #f6ecd6;
+  --nav: #0a1714;
+  --soft: #14302a;
   --mist: #0a2a24;
+  --aurora-a: #35c29b;
+  --aurora-b: #d8b168;
+  --aurora-c: #4d7be0;
 }
 
 @theme inline {
@@ -81,22 +96,45 @@ html[data-theme="dark"] {
   --color-nav: var(--nav);
   --color-soft: var(--soft);
   --color-mist: var(--mist);
+  --color-aurora-a: var(--aurora-a);
+  --color-aurora-b: var(--aurora-b);
+  --color-aurora-c: var(--aurora-c);
   --font-sans: var(--font-outfit);
   --font-display: var(--font-cormorant);
   --font-arabic: var(--font-naskh);
   --font-amiri: var(--font-amiri);
 }
 
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
 html,
 body {
   min-height: 100%;
-  background: var(--background);
   color: var(--foreground);
 }
 
 body {
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   letter-spacing: 0.01em;
+  background-color: var(--background);
+  background-image:
+    radial-gradient(
+      58rem 38rem at 8% -12%,
+      color-mix(in srgb, var(--aurora-a) 16%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      48rem 34rem at 104% 2%,
+      color-mix(in srgb, var(--aurora-b) 14%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      46rem 30rem at 50% 118%,
+      color-mix(in srgb, var(--aurora-c) 10%, transparent),
+      transparent 60%
+    );
+  background-attachment: fixed;
 }
 
 .font-display {
@@ -116,18 +154,29 @@ body {
   background: color-mix(in srgb, var(--gold) 40%, transparent);
 }
 
+/* ------------------------------------------------------------------ */
+/* Surfaces & ornaments                                                */
+/* ------------------------------------------------------------------ */
 .geom-veil {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23b0893e' stroke-opacity='0.16' stroke-width='0.7'%3E%3Cpath d='M36 4 L42 24 L62 24 L46 36 L52 56 L36 44 L20 56 L26 36 L10 24 L30 24 Z'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 72px 72px;
 }
 
 .surface {
+  position: relative;
   border-radius: 1.25rem;
-  border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--stroke));
-  background: color-mix(in srgb, var(--card) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 30%, var(--stroke));
+  background:
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--gold) 7%, transparent),
+      transparent 42%
+    ),
+    color-mix(in srgb, var(--card) 90%, transparent);
   box-shadow:
-    inset 0 1px 0 color-mix(in srgb, var(--gold) 22%, transparent),
-    0 18px 40px -28px rgba(7, 18, 16, 0.55);
+    inset 0 1px 0 color-mix(in srgb, var(--gold) 26%, transparent),
+    0 20px 44px -30px rgba(5, 20, 17, 0.6);
+  backdrop-filter: blur(10px);
 }
 
 .focus-ring {
@@ -141,16 +190,137 @@ body {
 
 .ornament-line {
   height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.text-gold-gradient {
   background: linear-gradient(
-    90deg,
-    transparent,
-    var(--gold),
-    transparent
+    110deg,
+    var(--gold) 20%,
+    color-mix(in srgb, var(--gold) 45%, #fff6dc) 50%,
+    var(--gold) 80%
   );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sheen-text 7s linear infinite;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--gold) 35%, var(--stroke));
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  padding: 0.18rem 0.65rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Buttons */
+.btn-primary {
+  color: var(--accent-fg);
+  background: linear-gradient(
+    140deg,
+    color-mix(in srgb, var(--accent) 100%, #fff 14%),
+    color-mix(in srgb, var(--accent) 78%, #000)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 10px 24px -12px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.btn-secondary {
+  background: color-mix(in srgb, var(--soft) 85%, transparent);
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--stroke));
+}
+
+.btn-hero {
+  color: var(--hero-fg);
+  background: color-mix(in srgb, var(--hero-fg) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hero-fg) 22%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+/* Aurora blobs used behind page headers */
+.aurora-blob {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(56px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: float-slow 14s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------------ */
+/* Keyframes                                                           */
+/* ------------------------------------------------------------------ */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(14px, -18px, 0) scale(1.08);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sheen-text {
+  to {
+    background-position: 220% center;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--gold) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.6s ease-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+  .aurora-blob,
+  .animate-spin-slow,
+  .animate-pulse-glow,
+  .text-gold-gradient {
+    animation: none;
+  }
+}
+
+.hero-glow {
+  background:
+    radial-gradient(
+      120% 90% at 85% -10%,
+      color-mix(in srgb, var(--gold) 38%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 80% at 0% 110%,
+      color-mix(in srgb, var(--aurora-a) 35%, transparent),
+      transparent 60%
+    );
 }

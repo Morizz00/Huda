@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { HeroShell } from "@/components/home/HeroShell";
 import { Button } from "@/components/ui/Button";
-import { formatCountdown } from "@/lib/dates";
+import { formatClock, formatCountdown } from "@/lib/dates";
 import {
   computePrayerTimes,
   METHODS,
@@ -13,19 +14,15 @@ import {
 import { STORAGE_KEYS, readStorage } from "@/lib/storage";
 import { useGeolocation } from "@/lib/useGeolocation";
 
+const ORDER = ["fajr", "sunrise", "dhuhr", "asr", "maghrib", "isha"] as const;
+
 function prayerLabel(name: string | null) {
   if (!name) return "Isha complete";
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-function Shell({ children }: { children: ReactNode }) {
-  return (
-    <div className="relative overflow-hidden rounded-[1.6rem] border border-gold/25 bg-hero px-5 py-7 text-hero-fg">
-      <div className="pointer-events-none absolute -right-8 -top-10 h-36 w-36 rounded-full border border-gold/20" />
-      <div className="pointer-events-none absolute -right-2 -top-4 h-24 w-24 rounded-full border border-gold/15" />
-      {children}
-    </div>
-  );
+function Eyebrow({ children }: { children: string }) {
+  return <p className="text-xs uppercase tracking-[0.26em] text-gold">{children}</p>;
 }
 
 export function NextPrayerHero() {
@@ -45,62 +42,83 @@ export function NextPrayerHero() {
     if (!coords || !now) return null;
     const times = computePrayerTimes(coords, now, method in METHODS ? method : "MuslimWorldLeague", madhab);
     const next = nextPrayerTime(times.prayerTimes, now);
-    return { next, remaining: next.time ? next.time.getTime() - now.getTime() : 0 };
+    const past = ORDER.map((key) => times.prayerTimes[key]).filter((t) => t.getTime() <= now.getTime());
+    const previous = past.length ? past[past.length - 1] : null;
+    const remaining = next.time ? next.time.getTime() - now.getTime() : 0;
+    const span = next.time && previous ? next.time.getTime() - previous.getTime() : 0;
+    const progress = span > 0 ? Math.min(1, Math.max(0, 1 - remaining / span)) : 0;
+    return { next, remaining, progress };
   }, [coords, now, method, madhab]);
 
   if (status === "locating") {
     return (
-      <Shell>
-        <p className="text-xs uppercase tracking-[0.22em] text-gold">Finding location</p>
-        <p className="mt-3 font-display text-4xl">Next prayer</p>
-      </Shell>
+      <HeroShell>
+        <Eyebrow>Finding location</Eyebrow>
+        <p className="mt-3 font-display text-4xl font-semibold tracking-tight">Next prayer</p>
+        <div className="mt-5 h-1.5 w-full overflow-hidden rounded-full bg-hero-fg/10">
+          <div className="h-full w-1/3 animate-pulse rounded-full bg-hero-fg/30" />
+        </div>
+      </HeroShell>
     );
   }
 
   if (!coords) {
     return (
-      <Shell>
-        <p className="text-xs uppercase tracking-[0.22em] text-gold">Prayer times</p>
-        <p className="mt-2 font-display text-4xl">Set your location</p>
-        <p className="mt-2 text-sm text-hero-fg/70">
-          Allow location or enter coordinates on the prayer page.
+      <HeroShell>
+        <Eyebrow>Prayer times</Eyebrow>
+        <p className="mt-2 font-display text-4xl font-semibold tracking-tight">Set your location</p>
+        <p className="mt-2 max-w-xs text-sm text-hero-fg/70">
+          Allow location or enter coordinates on the prayer page. Nothing leaves your device.
         </p>
         <div className="mt-5">
           <Button href="/prayer" variant="hero">
             Open prayer times
           </Button>
         </div>
-      </Shell>
+      </HeroShell>
     );
   }
 
   if (!result?.next.name) {
     return (
-      <Shell>
-        <p className="text-xs uppercase tracking-[0.22em] text-gold">Tonight</p>
-        <p className="mt-2 font-display text-4xl">Isha has passed</p>
+      <HeroShell>
+        <Eyebrow>Tonight</Eyebrow>
+        <p className="mt-2 font-display text-4xl font-semibold tracking-tight">Isha has passed</p>
         <p className="mt-2 text-sm text-hero-fg/70">Fajr is next after midnight.</p>
         <div className="mt-5">
           <Button href="/prayer" variant="hero">
             Today&apos;s times
           </Button>
         </div>
-      </Shell>
+      </HeroShell>
     );
   }
 
   return (
-    <Shell>
-      <p className="text-xs uppercase tracking-[0.22em] text-gold">Next prayer</p>
-      <p className="mt-2 font-display text-5xl">{prayerLabel(result.next.name)}</p>
-      <p className="mt-4 font-mono text-3xl tabular-nums tracking-wide text-gold">
+    <HeroShell>
+      <Eyebrow>Next prayer</Eyebrow>
+      <div className="mt-2 flex items-end justify-between gap-3">
+        <p className="font-display text-5xl font-semibold leading-none tracking-tight md:text-6xl">
+          {prayerLabel(result.next.name)}
+        </p>
+        {result.next.time && (
+          <p className="pb-1 font-display text-2xl text-gold">{formatClock(result.next.time)}</p>
+        )}
+      </div>
+      <p className="mt-4 font-mono text-3xl tabular-nums tracking-wide text-gold md:text-4xl">
         {formatCountdown(result.remaining)}
       </p>
-      <div className="mt-6">
+      <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-hero-fg/10">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-aurora-a via-gold to-aurora-b transition-[width] duration-1000 ease-linear"
+          style={{ width: `${(result.progress * 100).toFixed(1)}%` }}
+        />
+      </div>
+      <div className="mt-5">
         <Button href="/prayer" variant="hero">
           Today&apos;s times
         </Button>
       </div>
-    </Shell>
+    </HeroShell>
   );
 }
